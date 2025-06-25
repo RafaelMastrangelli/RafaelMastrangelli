@@ -1,16 +1,19 @@
-## Hi there 👋
+# 👋 Olá! Eu sou Rafael Mastrangelli
 
-<!--
-**RafaelMastrangelli/RafaelMastrangelli** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+💻 Desenvolvedor Full Stack com 4+ anos de experiência  
+🚀 Foco em .NET, C#, JavaScript, Vue.js, APIs REST e arquitetura de microsserviços  
+🌱 Atualmente estudando IA aplicada a finanças
 
-Here are some ideas to get you started:
+## 🛠️ Tecnologias que uso
+- Backend: **C#**, **.NET**, **Entity Framework**
+- Frontend: **Vue.js**, **JavaScript**, **TypeScript**
+- DevOps: **Docker**, **Git**, **CI/CD**
+- Banco de dados: **SQL Server**, **PostgreSQL**
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+## 📊 Projetos em destaque
+- [Dashboard de Investimentos](https://github.com/RafaelMastrangelli/InvestDashboard) — Visualize ações e desempenho de carteiras
+- [API para Controle de Transações](https://github.com/RafaelMastrangelli/CotaTransacoes)
+
+## 📫 Como me encontrar
+- Email: [rafadmastrangelli@gmail.com](mailto:rafadmastrangelli@gmail.com)
+- LinkedIn: [linkedin.com/in/rafaelmastrangelli](https://linkedin.com/in/rafaelmastrangelli)
