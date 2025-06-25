@@ -1,4 +1,4 @@
-# 👋 Olá! Eu sou Rafael Mastrangelli
+# 👋 Welcome! Eu sou Rafael Mastrangelli ou Revoada... depende de quem pergunta.
 
 💻 Desenvolvedor Full Stack com 4+ anos de experiência  
 🚀 Foco em .NET, C#, JavaScript, Vue.js, APIs REST e arquitetura de microsserviços  
