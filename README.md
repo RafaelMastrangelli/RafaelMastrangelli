@@ -1,8 +1,8 @@
 # 👋 Welcome! Eu sou Rafael Mastrangelli ou Revoada... depende de quem pergunta.
 
-💻 Desenvolvedor Full Stack com 4+ anos de experiência  
-🚀 Foco em .NET, C#, JavaScript, Vue.js, APIs REST e arquitetura de microsserviços  
-🌱 Atualmente estudando IA aplicada a finanças
+💻 Desenvolvedor Full Stack com 4+ anos de experiência. 
+🚀 Foco em .NET, C#, JavaScript, Vue.js, APIs REST e arquitetura de microsserviços.  
+🍕 Atualmente estudando IA aplicada a finanças dentro de um projeto pessoal.
 
 ## 📊 Projetos em destaque
 
