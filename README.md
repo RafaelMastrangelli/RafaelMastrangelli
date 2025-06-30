@@ -9,6 +9,8 @@
 🍕 Atualmente estudando IA aplicada a finanças dentro de um projeto pessoal
 
 ## 📊 Projetos / Projects
+- FinanceHub(em desenvolvimento): [https://github.com/RafaelMastrangelli/FinanceHub](https://github.com/RafaelMastrangelli/FinanceHub)
+
 
 ## 📫 Como me encontrar / How you can find me!
 - Email: [rafadmastrangelli@gmail.com](mailto:rafadmastrangelli@gmail.com)
