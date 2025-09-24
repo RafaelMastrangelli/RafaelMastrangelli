@@ -10,7 +10,7 @@
 
 ## 📊 Projetos / Projects
 - FinanceHub(em desenvolvimento): [https://github.com/RafaelMastrangelli/FinanceHub](https://github.com/RafaelMastrangelli/FinanceHub)
-
+- TreinaMais: [https://github.com/RafaelMastrangelli/TreinaMais](https://github.com/RafaelMastrangelli/TreinaMais)
 
 ## 📫 Como me encontrar / How you can find me!
 - Email: [rafadmastrangelli@gmail.com](mailto:rafadmastrangelli@gmail.com)
