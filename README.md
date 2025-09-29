@@ -1,9 +1,9 @@
-# 👋 Bem-vindo(a) / Welcome!
+👋 Bem-vindo(a) / Welcome!
 
-💻 **Full-Stack Web Developer | Software Developer**
-🌍 4+ anos de experiência em **.NET (C#)**, **JavaScript/TypeScript**, **Vue.js**, **Angular**, **React**, **REST APIs** e **arquitetura de microsserviços**
-🚀 Apaixonado por tecnologia, boas práticas e soluções escaláveis
-🤖 Atualmente explorando **IA aplicada a finanças** no projeto **FinanceHub**
+💻 Full-Stack Web Developer | Software Developer
+🌍 4+ anos de experiência em .NET (C#), JavaScript/TypeScript, Vue.js, Angular, React, REST APIs e arquitetura de microsserviços
+🚀 Apaixonado por Clean Architecture, boas práticas, testes automatizados e soluções escaláveis
+🤖 Atualmente explorando IA aplicada a finanças no projeto FinanceHub
 
 ---
 
