@@ -1,9 +1,10 @@
-# 👋 Olá, eu sou Rafael Mastrangelli
+Olá, sou desenvolvedor de software com mais de 4 anos de experiência em aplicações web, atuando como full-stack. Já trabalhei por alguns anos com Node.js e PHP (Laravel), mas meu foco está em desenvolvimento com .NET, utilizando frameworks JavaScript/TypeScript.
 
-💻 **Full-Stack Web Developer | Software Developer**  
-🌍 4+ anos de experiência com **.NET (C#)**, **JavaScript/TypeScript**, **Vue.js**, **Angular**, **React**, **REST APIs** e **Microservices**  
-🚀 Apaixonado por tecnologia, boas práticas e soluções escaláveis
-📈 Buscando sempre aprender, contribuir e evoluir como desenvolvedor  
+Tenho experiência profissional com metodologias ágeis (SCRUM) e já atuei em projetos com diferentes arquiteturas e padrões de design, como Clean Architecture, Microservices, DDD, MVC, MVVM, Atomic Design e Singleton. Também possuo experiência na criação e integração de APIs e tecnologias como Azure e Docker.
+
+Sou formado em Sistemas de Informação pela ITE (Bauru/SP) e busco estar em constante evolução na área de tecnologia. Atualmente, estou me especializando em automações e integrações de APIs com inteligência artificial utilizando a ferramenta n8n, além de estudar inglês com foco em oportunidades no mercado internacional.
+
+Estou em busca de oportunidades como desenvolvedor pleno, onde eu possa contribuir com meu conhecimento e continuar evoluindo profissionalmente.
 
 ---
 
