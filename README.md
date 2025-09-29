@@ -37,10 +37,6 @@ Estou em busca de oportunidades como desenvolvedor pleno, onde eu possa contribu
   Plataforma de cursos online com IA para geração de resumos, moderação de conteúdo e análise de feedback.  
   🔹 Backend em **.NET 9** | **Swagger** | **JWT Auth** | **OpenAI & Leonardo AI**
 
-- **[FinanceHub](https://github.com/RafaelMastrangelli/FinanceHub)** *(em desenvolvimento)*  
-  Dashboard de investimentos com **.NET 9 API + Vue 3**, aplicando **Clean Architecture** e **testes automatizados**.  
-  🔹 Futuras integrações: **MongoDB + IA para análise financeira**
-
 ---
 
 ## 📫 Como me encontrar
