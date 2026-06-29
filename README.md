@@ -1,92 +1,187 @@
 ```md
-# 👋 Hi, I'm Rafael Mastrangelli
+<h1 align="center">Hi 👋, I'm Rafael Mastrangelli</h1>
 
-Software Developer with 5+ years of experience building web applications, APIs, and system integrations.
-
-My primary focus is **.NET** and backend development, creating scalable, maintainable, and secure solutions. Throughout my career, I've modernized legacy systems, developed MVPs, built REST APIs, and worked with cloud services, containers, and modern software architectures such as Clean Architecture, DDD, and Microservices.
-
-Currently, I'm expanding my expertise in **Artificial Intelligence**, building AI-powered applications, workflow automations, and intelligent integrations using technologies like **OpenAI**, **Groq**, and **n8n**.
-
----
-
-## 📊 GitHub Stats
+<h3 align="center">
+Backend Software Developer • .NET • APIs • AI Integrations
+</h3>
 
 <p align="center">
-  <img height="170" src="https://github-readme-stats.vercel.app/api?username=RafaelMastrangelli&show_icons=true&theme=radical" />
-  <img height="170" src="https://github-readme-stats.vercel.app/api/top-langs/?username=RafaelMastrangelli&layout=compact&theme=radical" />
+Building scalable software, modernizing legacy systems and creating intelligent solutions with Artificial Intelligence.
+</p>
+
+<p align="center">
+<img src="https://komarev.com/ghpvc/?username=RafaelMastrangelli&label=Profile%20Views&color=0e75b6&style=for-the-badge"/>
+<img src="https://img.shields.io/github/followers/RafaelMastrangelli?style=for-the-badge&logo=github"/>
+<img src="https://img.shields.io/github/stars/RafaelMastrangelli?style=for-the-badge&logo=github"/>
 </p>
 
 ---
 
-## 🛠️ Tech Stack
+# 💫 About Me
 
-<p>
-  <img src="https://img.shields.io/badge/.NET-512BD4?style=for-the-badge&logo=dotnet&logoColor=white"/>
-  <img src="https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=csharp&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white"/>
-  <img src="https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vue.js&logoColor=4FC08D"/>
-  <img src="https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white"/>
-  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"/>
-  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white"/>
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"/>
-  <img src="https://img.shields.io/badge/SQL_Server-CC2927?style=for-the-badge&logo=microsoftsqlserver&logoColor=white"/>
-  <img src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Azure-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white"/>
-</p>
+I'm a Software Developer with **5+ years of experience** building web applications, REST APIs and enterprise integrations.
 
----
+My main expertise is **Backend Development with .NET**, where I focus on designing scalable, maintainable and secure systems.
 
-## 🚀 Featured Projects
+Throughout my career I've worked on:
 
-### 🤖 FarmBot
-AI-powered pharmaceutical assistant that validates prescriptions, extracts structured information using LLMs, and automates pharmaceutical workflows.
+- 🚀 Modernizing legacy systems
+- ⚙️ Building REST APIs
+- ☁️ Azure Cloud Solutions
+- 📦 Docker Containers
+- 🏗 Clean Architecture
+- 🧩 Domain-Driven Design (DDD)
+- 🔗 System Integrations
+- 🤖 AI-powered Applications
 
-**Tech Stack:** .NET • Groq • n8n • OpenAI • Ngrok • REST APIs
+Currently I'm expanding my knowledge in **Artificial Intelligence**, creating intelligent automations and AI Agents using **OpenAI**, **Groq** and **n8n**.
 
 ---
 
-### 🎓 TreinaMais
-A complete e-learning platform that leverages Artificial Intelligence to generate course summaries, moderate content, and analyze user feedback.
+# 🚀 Featured Projects
 
-**Tech Stack:** .NET 9 • JWT • Swagger • OpenAI • Leonardo AI
+## 🤖 FarmBot
+
+AI-powered pharmaceutical assistant capable of:
+
+- 💊 Prescription validation
+- 🤖 AI recommendations
+- 📄 OCR + LLM extraction
+- 🔗 API integrations
+- ⚡ Workflow automation
+
+### Tech Stack
+
+`.NET 9` • `Groq` • `OpenAI` • `n8n` • `Docker`
+
+---
+
+## 🎓 TreinaMais
+
+Complete E-learning platform featuring:
+
+- AI-generated summaries
+- Sentiment Analysis
+- Content Moderation
+- JWT Authentication
+- Clean Architecture
+
+### Tech Stack
+
+`.NET 9` • `SQL Server` • `Swagger` • `OpenAI` • `Leonardo AI`
 
 🔗 https://github.com/RafaelMastrangelli/TreinaMais
 
 ---
 
-## 💡 Interests
+# 💻 Tech Stack
 
-- Backend Development
-- Software Architecture
-- Artificial Intelligence
-- API Integrations
-- Workflow Automation
-- Cloud Computing
+## Backend
+
+<p>
+<img src="https://skillicons.dev/icons?i=dotnet,cs,nodejs,php,laravel"/>
+</p>
+
+## Frontend
+
+<p>
+<img src="https://skillicons.dev/icons?i=vue,angular,react,ts,js,html,css"/>
+</p>
+
+## Database
+
+<p>
+<img src="https://skillicons.dev/icons?i=mongodb,mysql"/>
+<img src="https://img.shields.io/badge/SQL_Server-CC2927?style=for-the-badge&logo=microsoftsqlserver&logoColor=white"/>
+</p>
+
+## Cloud & DevOps
+
+<p>
+<img src="https://skillicons.dev/icons?i=azure,docker,git,github"/>
+</p>
+
+## AI & Automation
+
+<p>
+<img src="https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white"/>
+<img src="https://img.shields.io/badge/Groq-F55036?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/n8n-EA4B71?style=for-the-badge"/>
+</p>
 
 ---
 
-## 📫 Connect with Me
+# 📈 GitHub Analytics
 
-<p>
-  <a href="mailto:rafadmastrangelli@gmail.com">
-    <img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white"/>
-  </a>
+<p align="center">
 
-  <a href="https://linkedin.com/in/rafaelmastrangelli">
-    <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"/>
-  </a>
+<img height="180em" src="https://github-readme-stats.vercel.app/api?username=RafaelMastrangelli&show_icons=true&theme=github_dark&hide_border=true"/>
 
-  <a href="https://github.com/RafaelMastrangelli">
-    <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white"/>
-  </a>
+<img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=RafaelMastrangelli&layout=compact&theme=github_dark&hide_border=true"/>
+
+</p>
+
+<p align="center">
+
+<img src="https://streak-stats.demolab.com?user=RafaelMastrangelli&theme=github-dark-blue&hide_border=true"/>
+
+</p>
+
+---
+
+# 🏆 GitHub Trophies
+
+<p align="center">
+
+<img src="https://github-profile-trophy.vercel.app/?username=RafaelMastrangelli&theme=algolia&row=1&column=7&no-frame=true"/>
+
+</p>
+
+---
+
+# 📊 Contribution Graph
+
+<p align="center">
+
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=RafaelMastrangelli&theme=github-dark&hide_border=true"/>
+
+</p>
+
+---
+
+# 🌎 Connect With Me
+
+<p align="center">
+
+<a href="mailto:rafadmastrangelli@gmail.com">
+<img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white"/>
+</a>
+
+<a href="https://linkedin.com/in/rafaelmastrangelli">
+<img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"/>
+</a>
+
+<a href="https://github.com/RafaelMastrangelli">
+<img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white"/>
+</a>
+
 </p>
 
 ---
 
 <p align="center">
-  <i>"Building clean, scalable software that solves real-world problems."</i>
+
+## 💡 Interests
+
+Backend Development • Software Architecture • Cloud Computing • Artificial Intelligence • Workflow Automation • System Integrations
+
+</p>
+
+---
+
+<p align="center">
+
+### ⭐ *Building clean, scalable software that solves real-world problems.*
+
 </p>
 ```
