@@ -2,7 +2,7 @@
 
 # Bem vindo!! 👋
 
-### Full Stack Developer · Backend & Integrações · IA & Automação
+### Full Stack · Integrações · IA & Automação
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/rafael-mastrangelli-534472259)
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/RafaelMastrangelli)
