@@ -16,7 +16,7 @@
 
 ## 💡 Sobre mim
 
-Olá, meu nome é Rafael Mastrangelli, sou desenvolvedor **Full Stack** com **5 anos de experiência** construindo aplicações web escaláveis, integrações entre sistemas e soluções com **Inteligência Artificial**.
+Desenvolvedor **Full Stack** com **+5 anos de experiência** construindo aplicações web escaláveis, integrações entre sistemas e soluções com **Inteligência Artificial**.
 
 Atuo na **modernização de sistemas legados**, desenvolvimento de **APIs**, arquitetura de software e automação de processos — com foco em entregar valor de negócio com código limpo, testável e bem documentado.
 
@@ -70,9 +70,37 @@ const rafael = {
 
 ---
 
-## 🚀 Projetos em Destaque
+## ⭐ Projeto em Destaque — FarmaBot
 
-### Projetos Open Source
+> Bot de atendimento automatizado para farmácia via **WhatsApp**, com IA e dashboard de métricas.
+
+<table>
+  <tr>
+    <td>
+      <p>
+        O <strong><a href="https://github.com/RafaelMastrangelli/FarmaBot">FarmaBot</a></strong> é um atendente virtual completo para farmácias: o cliente conversa pelo WhatsApp, navega pelo catálogo, monta o carrinho, informa endereço e segue para o pagamento — com transferência para atendente humano quando necessário.
+      </p>
+      <p><strong>Principais funcionalidades:</strong></p>
+      <ul>
+        <li>Atendimento via WhatsApp com <strong>máquina de estados</strong> por sessão</li>
+        <li>Catálogo com <strong>6 categorias</strong> e <strong>14 produtos</strong></li>
+        <li>Carrinho, endereço, pagamento e <strong>handoff para humano</strong></li>
+        <li>Respostas dinâmicas com <strong>OpenAI GPT-4o</strong></li>
+        <li>Dashboard de métricas (pedidos, clientes, KPIs) em <strong>React</strong></li>
+      </ul>
+      <p>
+        <code>n8n</code> <code>OpenAI</code> <code>Z-API</code> <code>JavaScript</code> <code>React</code> <code>Express</code> <code>PostgreSQL</code> <code>Drizzle ORM</code> <code>Tailwind</code>
+      </p>
+      <p>
+        <a href="https://github.com/RafaelMastrangelli/FarmaBot"><img src="https://img.shields.io/badge/Ver_repositório-181717?style=for-the-badge&logo=github&logoColor=white" alt="FarmaBot no GitHub" /></a>
+      </p>
+    </td>
+  </tr>
+</table>
+
+---
+
+## 🚀 Outros Projetos
 
 <table>
   <tr>
@@ -80,30 +108,30 @@ const rafael = {
       <h3>🎓 <a href="https://github.com/RafaelMastrangelli/TreinaMais">TreinaMais</a></h3>
       <p>Plataforma de cursos online com <strong>IA integrada</strong>: geração automática de resumos (OpenAI), capas (Leonardo.AI), moderação de conteúdo e análise de sentimentos em avaliações.</p>
       <p>
-        <code>.NET 10</code> <code>React 19</code> <code>TypeScript</code> <code>JWT</code> <code>Swagger</code>
+        <code>.NET</code> <code>React</code> <code>TypeScript</code> <code>JWT</code> <code>Swagger</code>
       </p>
     </td>
     <td width="50%" valign="top">
-      <h3>💊 <a href="https://github.com/RafaelMastrangelli/FarmaBot">FarmaBot</a></h3>
-      <p>Chatbot de atendimento para farmácia via <strong>WhatsApp</strong> com catálogo, carrinho, checkout e handoff para humano. Dashboard de métricas em React.</p>
+      <h3>📈 <a href="https://github.com/RafaelMastrangelli/FinanceHub">FinanceHub</a></h3>
+      <p>Dashboard de investimentos com visualização de dados financeiros e gestão de portfólio.</p>
       <p>
-        <code>n8n</code> <code>OpenAI GPT-4o</code> <code>Z-API</code> <code>React</code> <code>PostgreSQL</code>
+        <code>.NET</code> <code>Vue.js</code> <code>SQL</code>
       </p>
     </td>
   </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <h3>⚽ <a href="https://github.com/RafaelMastrangelli/ES-TOP1">ES-TOP1</a></h3>
+      <p>SaaS com E-commerce, sistema de scouting e análise de performance de jogadores profissionais.</p>
+      <p>
+        <code>TypeScript</code> <code>Node.js</code> <code>React</code>
+      </p>
+    </td>
+    <td width="50%" valign="top">
+      <p><em>Repositórios públicos do meu perfil. Projetos corporativos ficam no LinkedIn e no currículo.</em></p>
+    </td>
+  </tr>
 </table>
-
-### Projetos Corporativos · Servimed
-
-> Sistemas em produção no setor farmacêutico e hospitalar — repositórios privados.
-
-| Projeto | O que faz | Stack |
-|---------|-----------|-------|
-| **API Integração SH** | Middleware entre sistema distribuidor e plataformas externas (HUMA). Sync de cotações, pedidos e webhooks com jobs agendados | NestJS · TypeScript · Oracle · TypeORM · SOAP |
-| **Novo Portal Empresarial** | Backend do portal B2B de compras corporativas: auth, catálogo, busca (TypeSense), pré-carrinho, checkout e pedidos | Node.js · Express · PostgreSQL · Redis · JWT |
-| **Sistema Hospitalar (SH)** | Gestão de cotações, pedidos e PDC com integrações Bionexo, Apoio e GTPlan | .NET Core · Vue 2 · Vuetify · Oracle · SignalR |
-| **Portal de Devolução** | Workflow completo de devoluções: ocorrências, aprovações, romaneios, relatórios e integração Comprovei | PHP 8 · Oracle · AWS S3 · mPDF |
-| **AI Doc Agent** | Agente de IA que escuta webhooks Git, analisa diffs e gera documentação técnica automaticamente | Node.js · Express · OpenAI · simple-git |
 
 ---
 
@@ -126,11 +154,11 @@ const rafael = {
 | **Abr 2023 – Jun 2025** | Moovefy | Desenvolvedor Full Stack |
 | **Dez 2021 – Jun 2023** | Moovefy | Estagiário em Desenvolvimento Web |
 
-**Destaques recentes na Servimed:**
-- Modernização de sistemas legados (PHP, .NET, Vue)
-- Desenvolvimento de APIs de integração com Oracle e providers externos
-- MVPs com NestJS, Node.js e automação com IA
-- Melhorias de arquitetura, testes automatizados e qualidade de código
+**Destaques recentes:**
+- Desenvolvimento de APIs e integrações entre sistemas
+- Modernização de aplicações legadas
+- MVPs com Node.js e soluções com IA
+- Melhorias de arquitetura e qualidade de código
 
 ---
 
