@@ -1,6 +1,6 @@
 <div align="center">
 
-# Olá, eu sou o Rafael Mastrangelli 👋
+# Bem vindo!! 👋
 
 ### Full Stack Developer · Backend & Integrações · IA & Automação
 
@@ -16,7 +16,7 @@
 
 ## 💡 Sobre mim
 
-Desenvolvedor **Full Stack** com **+5 anos de experiência** construindo aplicações web escaláveis, integrações entre sistemas e soluções com **Inteligência Artificial**.
+Olá, meu nome é Rafael Mastrangelli, sou desenvolvedor **Full Stack** com **5 anos de experiência** construindo aplicações web escaláveis, integrações entre sistemas e soluções com **Inteligência Artificial**.
 
 Atuo na **modernização de sistemas legados**, desenvolvimento de **APIs**, arquitetura de software e automação de processos — com foco em entregar valor de negócio com código limpo, testável e bem documentado.
 
