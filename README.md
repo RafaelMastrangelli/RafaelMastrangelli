@@ -85,7 +85,7 @@ const rafael = {
         <li>Atendimento via WhatsApp com <strong>máquina de estados</strong> por sessão</li>
         <li>Catálogo com <strong>6 categorias</strong> e <strong>14 produtos</strong></li>
         <li>Carrinho, endereço, pagamento e <strong>handoff para humano</strong></li>
-        <li>Respostas dinâmicas com <strong>OpenAI GPT-4o</strong></li>
+        <li>Respostas dinâmicas com <strong>Groq Llama 3.3</strong></li>
         <li>Dashboard de métricas (pedidos, clientes, KPIs) em <strong>React</strong></li>
       </ul>
       <p>
