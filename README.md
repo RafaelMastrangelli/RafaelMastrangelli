@@ -78,7 +78,7 @@ const rafael = {
   <tr>
     <td>
       <p>
-        O <strong><a href="https://github.com/RafaelMastrangelli/FarmaBot">FarmaBot</a></strong> é um atendente virtual completo para farmácias: o cliente conversa pelo WhatsApp, navega pelo catálogo, monta o carrinho, informa endereço e segue para o pagamento — com transferência para atendente humano quando necessário.
+        O <strong><a href="https://rafaelmastrangelli.github.io/FarmaBot/">FarmaBot</a></strong> é um atendente virtual completo para farmácias: o cliente conversa pelo WhatsApp, navega pelo catálogo, monta o carrinho, informa endereço e segue para o pagamento — com transferência para atendente humano quando necessário.
       </p>
       <p><strong>Principais funcionalidades:</strong></p>
       <ul>
