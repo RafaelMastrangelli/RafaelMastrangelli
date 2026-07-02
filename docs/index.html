@@ -144,6 +144,52 @@
       background: rgba(255, 255, 255, 0.06);
     }
 
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .lang-toggle {
+      display: flex;
+      padding: 3px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+    }
+
+    .lang-btn {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.35rem 0.55rem;
+      border: none;
+      border-radius: 7px;
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: color var(--transition), background var(--transition);
+    }
+
+    .lang-btn.active {
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    .lang-btn:hover:not(.active) { color: var(--text); }
+
+    .grid-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(56, 189, 248, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(56, 189, 248, 0.035) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, black 20%, transparent 75%);
+    }
+
     /* Layout */
     .container {
       position: relative;
@@ -160,9 +206,20 @@
 
     .section-header {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 0.75rem;
       margin-bottom: 1.25rem;
+    }
+
+    .section-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: 0.04em;
+      flex-shrink: 0;
+      padding-top: 0.65rem;
+      opacity: 0.9;
     }
 
     .section-header .icon {
@@ -300,6 +357,81 @@
       font-size: 0.82rem;
       font-weight: 500;
       margin-bottom: 1rem;
+    }
+
+    .hero-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .terminal-line {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.35rem;
+      margin-top: 1.25rem;
+      padding: 0.65rem 0.9rem;
+      border-radius: 10px;
+      background: rgba(10, 15, 24, 0.85);
+      border: 1px solid var(--border);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      text-align: left;
+    }
+
+    .terminal-prompt { color: var(--success); }
+    .terminal-cmd { color: var(--text-muted); }
+    .terminal-cursor {
+      color: var(--accent);
+      animation: blink 1s step-end infinite;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    .metrics-strip {
+      margin-bottom: 3rem;
+    }
+
+    .metrics-inner {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+      padding: 1.25rem;
+      border-radius: var(--radius);
+      background: var(--bg-card);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+    }
+
+    @media (min-width: 640px) {
+      .metrics-inner { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    .metric {
+      text-align: center;
+      padding: 0.5rem;
+    }
+
+    .metric-value {
+      display: block;
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--accent);
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    .metric-label {
+      display: block;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+      line-height: 1.35;
     }
 
     .hero h1 {
@@ -676,7 +808,50 @@
       transition: color var(--transition);
     }
 
+    .project-card h3 a::after {
+      content: ' →';
+      opacity: 0;
+      color: var(--accent);
+      transition: opacity var(--transition);
+    }
+
+    .project-card:hover h3 a::after { opacity: 1; }
+
     .project-card h3 a:hover { color: var(--accent); }
+
+    .project-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 0.65rem;
+    }
+
+    .domain-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      background: var(--accent-soft);
+      border: 1px solid var(--border-strong);
+      color: var(--accent);
+    }
+
+    .domain-tag.highlight {
+      background: var(--highlight-soft);
+      border-color: rgba(129, 140, 248, 0.35);
+      color: #c7d2fe;
+    }
+
+    .project-impact {
+      font-size: 0.88rem;
+      color: var(--text);
+      font-weight: 500;
+      margin-bottom: 0.55rem;
+      line-height: 1.45;
+    }
 
     .project-card p {
       font-size: 0.9rem;
@@ -756,10 +931,16 @@
 
     @media (min-width: 640px) {
       .timeline-item {
-        grid-template-columns: 180px 1fr 1fr;
-        align-items: center;
+        grid-template-columns: 170px 1fr;
+        align-items: start;
         gap: 1rem;
       }
+    }
+
+    .timeline-main {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
     }
 
     .timeline-period {
@@ -773,6 +954,53 @@
 
     .timeline-company { font-weight: 600; }
     .timeline-role { color: var(--text-muted); font-size: 0.92rem; }
+
+    .timeline-context {
+      font-size: 0.82rem;
+      color: var(--accent);
+      opacity: 0.9;
+      margin-top: 0.15rem;
+    }
+
+    .traj-grid {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    @media (min-width: 640px) {
+      .traj-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .traj-item {
+      text-align: center;
+      padding: 1.1rem 0.75rem;
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border);
+      transition: border-color var(--transition), background var(--transition);
+    }
+
+    .traj-item:hover {
+      border-color: var(--border-strong);
+      background: var(--accent-soft);
+    }
+
+    .traj-year {
+      display: block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 0.35rem;
+    }
+
+    .traj-label {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
 
     .highlights {
       margin-top: 0.5rem;
@@ -920,22 +1148,30 @@
     @media (max-width: 640px) {
       .nav-links { display: none; }
       .container { padding-left: 1.1rem; padding-right: 1.1rem; }
+      .section-num { display: none; }
     }
   </style>
 </head>
 <body>
   <div class="noise" aria-hidden="true"></div>
+  <div class="grid-bg" aria-hidden="true"></div>
 
   <nav class="nav" id="nav">
     <div class="nav-inner">
       <a class="nav-brand" href="#">Rafael<span>.</span>dev</a>
-      <ul class="nav-links">
-        <li><a href="#sobre">Sobre</a></li>
-        <li><a href="#stack">Stack</a></li>
-        <li><a href="#projetos">Projetos</a></li>
-        <li><a href="#experiencia">Experiência</a></li>
-        <li><a href="#contato">Contato</a></li>
-      </ul>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="#sobre" data-i18n="nav.about">Sobre</a></li>
+          <li><a href="#stack" data-i18n="nav.stack">Stack</a></li>
+          <li><a href="#projetos" data-i18n="nav.projects">Projetos</a></li>
+          <li><a href="#experiencia" data-i18n="nav.experience">Experiência</a></li>
+          <li><a href="#contato" data-i18n="nav.contact">Contato</a></li>
+        </ul>
+        <div class="lang-toggle" role="group" aria-label="Idioma">
+          <button type="button" class="lang-btn active" data-lang="pt">PT</button>
+          <button type="button" class="lang-btn" data-lang="en">EN</button>
+        </div>
+      </div>
     </div>
   </nav>
 
@@ -945,38 +1181,65 @@
       <div class="avatar-wrap">
         <div class="avatar-ring" aria-hidden="true"></div>
         <img class="avatar" src="https://github.com/RafaelMastrangelli.png" alt="Rafael Mastrangelli" width="148" height="148">
-        <span class="status-badge">Open to work</span>
+        <span class="status-badge" data-i18n="hero.openToWork">Open to work</span>
       </div>
       <div class="hero-content">
-        <div class="hero-greeting">👋 Olá, seja bem-vindo!</div>
+        <div class="hero-greeting"><span class="hero-num">01 //</span> <span data-i18n="hero.greeting">profile</span></div>
         <h1><span class="gradient">Rafael Mastrangelli</span></h1>
-        <p class="subtitle">Full Stack · Integrações · IA &amp; Automação</p>
+        <p class="subtitle" data-i18n="hero.subtitle">Full Stack · Integrações · IA &amp; Automação</p>
         <div class="hero-meta">
           <span class="meta-pill">📍 Bauru, SP · Brasil</span>
           <span class="meta-pill">🎓 Sistemas de Informação (ITE)</span>
-          <span class="meta-pill">💼 5+ anos de experiência</span>
+          <span class="meta-pill" data-i18n="hero.experience">💼 5+ anos de experiência</span>
         </div>
         <div class="badges">
           <a class="badge-linkedin" href="https://linkedin.com/in/rafael-mastrangelli-534472259" target="_blank" rel="noopener">LinkedIn</a>
           <a class="badge-github" href="https://github.com/RafaelMastrangelli" target="_blank" rel="noopener">GitHub</a>
           <a class="badge-email" href="mailto:rafadmastrangelli@gmail.com">Email</a>
         </div>
+        <div class="terminal-line" aria-hidden="true">
+          <span class="terminal-prompt">rafael@servimed ~ %</span>
+          <span class="terminal-cmd" id="terminalCmd"></span>
+          <span class="terminal-cursor">▋</span>
+        </div>
       </div>
     </header>
 
+    <section class="metrics-strip reveal" aria-label="Métricas">
+      <div class="metrics-inner">
+        <div class="metric">
+          <span class="metric-value">5+</span>
+          <span class="metric-label" data-i18n="metrics.years">anos de experiência</span>
+        </div>
+        <div class="metric">
+          <span class="metric-value">3</span>
+          <span class="metric-label" data-i18n="metrics.companies">empresas</span>
+        </div>
+        <div class="metric">
+          <span class="metric-value">4+</span>
+          <span class="metric-label" data-i18n="metrics.projects">projetos públicos</span>
+        </div>
+        <div class="metric">
+          <span class="metric-value">B2B</span>
+          <span class="metric-label" data-i18n="metrics.sector">Pharma &amp; Hospitalar</span>
+        </div>
+      </div>
+    </section>
+
     <section id="sobre" class="reveal">
       <div class="section-header">
+        <span class="section-num">01 //</span>
         <div class="icon">💡</div>
         <div>
-          <h2>Sobre mim</h2>
-          <p>Quem sou e o que faço no dia a dia</p>
+          <h2 data-i18n="about.title">Sobre mim</h2>
+          <p data-i18n="about.subtitle">Quem sou e o que faço no dia a dia</p>
         </div>
       </div>
       <div class="about-grid">
         <div class="card about-text">
-          <p>Software Engineer com <strong>5 anos de experiência</strong> no <strong>Full Stack</strong>, construindo aplicações web escaláveis, integrações entre sistemas e soluções com <strong>Inteligência Artificial</strong>.</p>
-          <p>Atuo na <strong>modernização de sistemas legados</strong>, desenvolvimento de <strong>APIs</strong>, arquitetura de software e automação de processos — com foco em entregar valor de negócio com código limpo, testável e bem documentado.</p>
-          <p>Atualmente como <strong>Analista de Sistemas Pleno</strong> na <strong>Servimed</strong>, liderando MVPs, integrações e melhorias de arquitetura em plataformas B2B do setor farmacêutico e hospitalar.</p>
+          <p data-i18n-html="about.p1">Software Engineer com <strong>5 anos de experiência</strong> no <strong>Full Stack</strong>, construindo aplicações web escaláveis, integrações entre sistemas e soluções com <strong>Inteligência Artificial</strong>.</p>
+          <p data-i18n-html="about.p2">Atuo na <strong>modernização de sistemas legados</strong>, desenvolvimento de <strong>APIs</strong>, arquitetura de software e automação de processos — com foco em entregar valor de negócio com código limpo, testável e bem documentado.</p>
+          <p data-i18n-html="about.p3">Atualmente como <strong>Analista de Sistemas Pleno</strong> na <strong>Servimed</strong>, liderando MVPs, integrações e melhorias de arquitetura em plataformas B2B do setor farmacêutico e hospitalar.</p>
         </div>
         <div class="code-window">
           <div class="code-header">
@@ -999,10 +1262,11 @@
 
     <section id="stack" class="reveal">
       <div class="section-header">
+        <span class="section-num">02 //</span>
         <div class="icon">🛠️</div>
         <div>
-          <h2>Stack &amp; Ferramentas</h2>
-          <p>Tecnologias que uso no dia a dia</p>
+          <h2 data-i18n="stack.title">Stack &amp; Ferramentas</h2>
+          <p data-i18n="stack.subtitle">Tecnologias que uso no dia a dia</p>
         </div>
       </div>
       <div class="card">
@@ -1056,57 +1320,71 @@
 
     <section id="projetos" class="reveal">
       <div class="section-header">
+        <span class="section-num">03 //</span>
         <div class="icon">⭐</div>
         <div>
-          <h2>Projeto em Destaque</h2>
-          <p>FarmaBot — atendimento inteligente para farmácias</p>
+          <h2 data-i18n="projects.featured.title">Projeto em Destaque</h2>
+          <p data-i18n="projects.featured.subtitle">FarmaBot — atendimento inteligente para farmácias</p>
         </div>
       </div>
       <div class="card featured">
-        <div class="featured-label">✦ Destaque</div>
-        <blockquote>Bot de atendimento automatizado para farmácia via <strong>WhatsApp</strong>, com IA e dashboard de métricas.</blockquote>
-        <p>O <strong><a href="https://rafaelmastrangelli.github.io/FarmaBot/" style="color: var(--accent); text-decoration: none;">FarmaBot</a></strong> é um atendente virtual completo para farmácias: o cliente conversa pelo WhatsApp, navega pelo catálogo, monta o carrinho, informa endereço e segue para o pagamento — com transferência para atendente humano quando necessário.</p>
-        <p><strong>Principais funcionalidades:</strong></p>
+        <div class="featured-label" data-i18n="projects.featured.label">✦ Destaque</div>
+        <div class="project-meta">
+          <span class="domain-tag">IA</span>
+          <span class="domain-tag highlight">Pharma</span>
+          <span class="domain-tag">WhatsApp</span>
+        </div>
+        <blockquote data-i18n-html="projects.farmabot.quote"></blockquote>
+        <p class="project-impact" data-i18n="projects.farmabot.impact">Atendimento WhatsApp end-to-end com handoff para humano</p>
+        <p data-i18n-html="projects.farmabot.desc"></p>
+        <p><strong data-i18n="projects.farmabot.featuresTitle">Principais funcionalidades:</strong></p>
         <ul>
-          <li>Atendimento via WhatsApp com <strong>máquina de estados</strong> por sessão</li>
-          <li>Catálogo com <strong>6 categorias</strong> e <strong>14 produtos</strong></li>
-          <li>Carrinho, endereço, pagamento e <strong>handoff para humano</strong></li>
-          <li>Respostas dinâmicas com <strong>Groq Llama 3.3</strong></li>
-          <li>Dashboard de métricas (pedidos, clientes, KPIs) em <strong>React</strong></li>
+          <li data-i18n-html="projects.farmabot.f1"></li>
+          <li data-i18n-html="projects.farmabot.f2"></li>
+          <li data-i18n-html="projects.farmabot.f3"></li>
+          <li data-i18n-html="projects.farmabot.f4"></li>
+          <li data-i18n-html="projects.farmabot.f5"></li>
         </ul>
         <div class="tech-codes">
           <code>n8n</code><code>OpenAI</code><code>Z-API</code><code>JavaScript</code><code>React</code><code>Express</code><code>PostgreSQL</code><code>Drizzle ORM</code><code>Tailwind</code>
         </div>
         <div class="btn-row">
-          <a class="btn btn-primary" href="https://rafaelmastrangelli.github.io/FarmaBot/">Ver demo</a>
-          <a class="btn" href="https://github.com/RafaelMastrangelli/FarmaBot">Repositório</a>
+          <a class="btn btn-primary" href="https://rafaelmastrangelli.github.io/FarmaBot/" data-i18n="projects.demo">Ver demo</a>
+          <a class="btn" href="https://github.com/RafaelMastrangelli/FarmaBot" data-i18n="projects.repo">Repositório</a>
         </div>
       </div>
 
       <div class="section-header" style="margin-top: 2.5rem;">
+        <span class="section-num">03b //</span>
         <div class="icon">🚀</div>
         <div>
-          <h2>Outros Projetos</h2>
-          <p>Repositórios públicos do meu perfil</p>
+          <h2 data-i18n="projects.others.title">Outros Projetos</h2>
+          <p data-i18n="projects.others.subtitle">Repositórios públicos do meu perfil</p>
         </div>
       </div>
       <div class="projects-grid">
         <article class="project-card">
+          <div class="project-meta"><span class="domain-tag">IA</span><span class="domain-tag highlight">EdTech</span></div>
           <span class="emoji">🎓</span>
           <h3><a href="https://github.com/RafaelMastrangelli/TreinaMais">TreinaMais</a></h3>
-          <p>Plataforma de cursos online com <strong>IA integrada</strong>: geração automática de resumos (OpenAI), capas (Leonardo.AI), moderação de conteúdo e análise de sentimentos em avaliações.</p>
+          <p class="project-impact" data-i18n="projects.treina.impact">Cursos online com IA para conteúdo e moderação</p>
+          <p data-i18n-html="projects.treina.desc"></p>
           <div class="tech-codes"><code>.NET</code><code>React</code><code>TypeScript</code><code>JWT</code><code>Swagger</code></div>
         </article>
         <article class="project-card">
+          <div class="project-meta"><span class="domain-tag highlight">Fintech</span></div>
           <span class="emoji">📈</span>
           <h3><a href="https://github.com/RafaelMastrangelli/FinanceHub">FinanceHub</a></h3>
-          <p>Dashboard de investimentos com visualização de dados financeiros e gestão de portfólio.</p>
+          <p class="project-impact" data-i18n="projects.finance.impact">Visualização de dados e gestão de portfólio</p>
+          <p data-i18n="projects.finance.desc">Dashboard de investimentos com visualização de dados financeiros e gestão de portfólio.</p>
           <div class="tech-codes"><code>.NET</code><code>Vue.js</code><code>SQL</code></div>
         </article>
         <article class="project-card">
+          <div class="project-meta"><span class="domain-tag">SaaS</span><span class="domain-tag highlight">E-commerce</span></div>
           <span class="emoji">⚽</span>
           <h3><a href="https://github.com/RafaelMastrangelli/ES-TOP1">ES-TOP1</a></h3>
-          <p>SaaS com E-commerce, sistema de scouting e análise de performance de jogadores profissionais.</p>
+          <p class="project-impact" data-i18n="projects.es.impact">Scouting e performance de jogadores profissionais</p>
+          <p data-i18n="projects.es.desc">SaaS com E-commerce, sistema de scouting e análise de performance de jogadores profissionais.</p>
           <div class="tech-codes"><code>TypeScript</code><code>Node.js</code><code>React</code></div>
         </article>
       </div>
@@ -1114,37 +1392,71 @@
 
     <section id="experiencia" class="reveal">
       <div class="section-header">
+        <span class="section-num">04 //</span>
         <div class="icon">💼</div>
         <div>
-          <h2>Experiência</h2>
-          <p>Trajetória profissional</p>
+          <h2 data-i18n="exp.title">Experiência</h2>
+          <p data-i18n="exp.subtitle">Trajetória profissional</p>
         </div>
       </div>
       <div class="card">
         <div class="timeline">
           <div class="timeline-item current">
-            <span class="timeline-period">Nov 2025 – Atual</span>
-            <span class="timeline-company">Servimed Comercial</span>
-            <span class="timeline-role">Analista de Sistemas Pleno</span>
+            <span class="timeline-period">Nov 2025 – <span data-i18n="exp.current">Atual</span></span>
+            <div class="timeline-main">
+              <span class="timeline-company">Servimed Comercial</span>
+              <span class="timeline-role" data-i18n="exp.servimed.role">Analista de Sistemas Pleno</span>
+              <span class="timeline-context" data-i18n="exp.servimed.ctx">Plataformas B2B farmacêutico e hospitalar</span>
+            </div>
           </div>
           <div class="timeline-item">
             <span class="timeline-period">Abr 2023 – Jun 2025</span>
-            <span class="timeline-company">Moovefy</span>
-            <span class="timeline-role">Desenvolvedor Full Stack</span>
+            <div class="timeline-main">
+              <span class="timeline-company">Moovefy</span>
+              <span class="timeline-role" data-i18n="exp.moovefy.role">Desenvolvedor Full Stack</span>
+              <span class="timeline-context" data-i18n="exp.moovefy.ctx">MVPs, integrações e produtos digitais</span>
+            </div>
           </div>
           <div class="timeline-item">
             <span class="timeline-period">Dez 2021 – Jun 2023</span>
-            <span class="timeline-company">Moovefy</span>
-            <span class="timeline-role">Estagiário em Desenvolvimento Web</span>
+            <div class="timeline-main">
+              <span class="timeline-company">Moovefy</span>
+              <span class="timeline-role" data-i18n="exp.intern.role">Estagiário em Desenvolvimento Web</span>
+              <span class="timeline-context" data-i18n="exp.intern.ctx">Desenvolvimento web e primeiras entregas em produção</span>
+            </div>
           </div>
         </div>
+
+        <div class="section-header" style="margin: 1.5rem 0 1rem; padding-top: 0.5rem; border-top: 1px solid var(--border);">
+          <span class="section-num">04b //</span>
+          <div class="icon">📈</div>
+          <div>
+            <h2 style="font-size: 1.1rem;" data-i18n="traj.title">Trajetória</h2>
+            <p data-i18n="traj.subtitle">Marcos da carreira</p>
+          </div>
+        </div>
+        <div class="traj-grid">
+          <div class="traj-item">
+            <span class="traj-year">2021</span>
+            <span class="traj-label" data-i18n="traj.2021">Estágio · Moovefy</span>
+          </div>
+          <div class="traj-item">
+            <span class="traj-year">2023</span>
+            <span class="traj-label" data-i18n="traj.2023">Full Stack · Moovefy</span>
+          </div>
+          <div class="traj-item">
+            <span class="traj-year">2025</span>
+            <span class="traj-label" data-i18n="traj.2025">Pleno · Servimed</span>
+          </div>
+        </div>
+
         <div class="highlights">
-          <h3>Destaques recentes</h3>
+          <h3 data-i18n="exp.highlights">Destaques recentes</h3>
           <ul>
-            <li>Desenvolvimento de APIs e integrações entre sistemas</li>
-            <li>Modernização de aplicações legadas</li>
-            <li>MVPs com Node.js e soluções com IA</li>
-            <li>Melhorias de arquitetura e qualidade de código</li>
+            <li data-i18n="exp.h1">Desenvolvimento de APIs e integrações entre sistemas</li>
+            <li data-i18n="exp.h2">Modernização de aplicações legadas</li>
+            <li data-i18n="exp.h3">MVPs com Node.js e soluções com IA</li>
+            <li data-i18n="exp.h4">Melhorias de arquitetura e qualidade de código</li>
           </ul>
         </div>
       </div>
@@ -1152,10 +1464,11 @@
 
     <section class="reveal">
       <div class="section-header">
+        <span class="section-num">05 //</span>
         <div class="icon">🏗️</div>
         <div>
-          <h2>Arquitetura &amp; Boas Práticas</h2>
-          <p>Padrões e abordagens que aplico nos projetos</p>
+          <h2 data-i18n="arch.title">Arquitetura &amp; Boas Práticas</h2>
+          <p data-i18n="arch.subtitle">Padrões e abordagens que aplico nos projetos</p>
         </div>
       </div>
       <div class="card">
@@ -1175,13 +1488,15 @@
     </section>
 
     <section id="contato" class="cta reveal">
-      <h2>📫 Vamos conversar?</h2>
-      <p>Estou aberto a oportunidades como <strong>Full Stack</strong>, <strong>Backend</strong> ou <strong>Integrações</strong>.</p>
+      <span class="section-num" style="display:block;text-align:center;margin-bottom:0.75rem;">06 //</span>
+      <h2 data-i18n="contact.title">📫 Vamos conversar?</h2>
+      <p data-i18n-html="contact.subtitle">Estou aberto a oportunidades como <strong>Full Stack</strong>, <strong>Backend</strong> ou <strong>Integrações</strong>.</p>
       <div class="badges">
-        <a class="badge-linkedin" href="https://linkedin.com/in/rafael-mastrangelli-534472259" target="_blank" rel="noopener">Conectar no LinkedIn</a>
-        <a class="badge-email" href="mailto:rafadmastrangelli@gmail.com">Enviar Email</a>
+        <a class="badge-linkedin" href="https://linkedin.com/in/rafael-mastrangelli-534472259" target="_blank" rel="noopener" data-i18n="contact.linkedin">Conectar no LinkedIn</a>
+        <a class="badge-email" href="mailto:rafadmastrangelli@gmail.com" data-i18n="contact.email">Enviar Email</a>
+        <a class="badge-github" href="https://github.com/RafaelMastrangelli" target="_blank" rel="noopener">GitHub</a>
       </div>
-      <p class="footer-quote">Transformo complexidade em software que funciona — do legado à IA.</p>
+      <p class="footer-quote" data-i18n="contact.quote">Transformo complexidade em software que funciona — do legado à IA.</p>
     </section>
 
   </div>
@@ -1189,9 +1504,199 @@
   <button class="scroll-top" id="scrollTop" aria-label="Voltar ao topo">↑</button>
 
   <script>
+    const i18n = {
+      pt: {
+        'nav.about': 'Sobre',
+        'nav.stack': 'Stack',
+        'nav.projects': 'Projetos',
+        'nav.experience': 'Experiência',
+        'nav.contact': 'Contato',
+        'hero.greeting': 'profile',
+        'hero.subtitle': 'Full Stack · Integrações · IA & Automação',
+        'hero.experience': '💼 5+ anos de experiência',
+        'hero.openToWork': 'Open to work',
+        'metrics.years': 'anos de experiência',
+        'metrics.companies': 'empresas',
+        'metrics.projects': 'projetos públicos',
+        'metrics.sector': 'Pharma & Hospitalar',
+        'about.title': 'Sobre mim',
+        'about.subtitle': 'Quem sou e o que faço no dia a dia',
+        'about.p1': 'Software Engineer com <strong>5 anos de experiência</strong> no <strong>Full Stack</strong>, construindo aplicações web escaláveis, integrações entre sistemas e soluções com <strong>Inteligência Artificial</strong>.',
+        'about.p2': 'Atuo na <strong>modernização de sistemas legados</strong>, desenvolvimento de <strong>APIs</strong>, arquitetura de software e automação de processos — com foco em entregar valor de negócio com código limpo, testável e bem documentado.',
+        'about.p3': 'Atualmente como <strong>Analista de Sistemas Pleno</strong> na <strong>Servimed</strong>, liderando MVPs, integrações e melhorias de arquitetura em plataformas B2B do setor farmacêutico e hospitalar.',
+        'stack.title': 'Stack & Ferramentas',
+        'stack.subtitle': 'Tecnologias que uso no dia a dia',
+        'projects.featured.title': 'Projeto em Destaque',
+        'projects.featured.subtitle': 'FarmaBot — atendimento inteligente para farmácias',
+        'projects.featured.label': '✦ Destaque',
+        'projects.farmabot.quote': 'Bot de atendimento automatizado para farmácia via <strong>WhatsApp</strong>, com IA e dashboard de métricas.',
+        'projects.farmabot.impact': 'Atendimento WhatsApp end-to-end com handoff para humano',
+        'projects.farmabot.desc': 'O <strong><a href="https://rafaelmastrangelli.github.io/FarmaBot/" style="color: var(--accent); text-decoration: none;">FarmaBot</a></strong> é um atendente virtual completo para farmácias: o cliente conversa pelo WhatsApp, navega pelo catálogo, monta o carrinho, informa endereço e segue para o pagamento — com transferência para atendente humano quando necessário.',
+        'projects.farmabot.featuresTitle': 'Principais funcionalidades:',
+        'projects.farmabot.f1': 'Atendimento via WhatsApp com <strong>máquina de estados</strong> por sessão',
+        'projects.farmabot.f2': 'Catálogo com <strong>6 categorias</strong> e <strong>14 produtos</strong>',
+        'projects.farmabot.f3': 'Carrinho, endereço, pagamento e <strong>handoff para humano</strong>',
+        'projects.farmabot.f4': 'Respostas dinâmicas com <strong>Groq Llama 3.3</strong>',
+        'projects.farmabot.f5': 'Dashboard de métricas (pedidos, clientes, KPIs) em <strong>React</strong>',
+        'projects.demo': 'Ver demo',
+        'projects.repo': 'Repositório',
+        'projects.others.title': 'Outros Projetos',
+        'projects.others.subtitle': 'Repositórios públicos do meu perfil',
+        'projects.treina.impact': 'Cursos online com IA para conteúdo e moderação',
+        'projects.treina.desc': 'Plataforma de cursos online com <strong>IA integrada</strong>: geração automática de resumos (OpenAI), capas (Leonardo.AI), moderação de conteúdo e análise de sentimentos em avaliações.',
+        'projects.finance.impact': 'Visualização de dados e gestão de portfólio',
+        'projects.finance.desc': 'Dashboard de investimentos com visualização de dados financeiros e gestão de portfólio.',
+        'projects.es.impact': 'Scouting e performance de jogadores profissionais',
+        'projects.es.desc': 'SaaS com E-commerce, sistema de scouting e análise de performance de jogadores profissionais.',
+        'exp.title': 'Experiência',
+        'exp.subtitle': 'Trajetória profissional',
+        'exp.current': 'Atual',
+        'exp.servimed.role': 'Analista de Sistemas Pleno',
+        'exp.servimed.ctx': 'Plataformas B2B farmacêutico e hospitalar',
+        'exp.moovefy.role': 'Desenvolvedor Full Stack',
+        'exp.moovefy.ctx': 'MVPs, integrações e produtos digitais',
+        'exp.intern.role': 'Estagiário em Desenvolvimento Web',
+        'exp.intern.ctx': 'Desenvolvimento web e primeiras entregas em produção',
+        'exp.highlights': 'Destaques recentes',
+        'exp.h1': 'Desenvolvimento de APIs e integrações entre sistemas',
+        'exp.h2': 'Modernização de aplicações legadas',
+        'exp.h3': 'MVPs com Node.js e soluções com IA',
+        'exp.h4': 'Melhorias de arquitetura e qualidade de código',
+        'traj.title': 'Trajetória',
+        'traj.subtitle': 'Marcos da carreira',
+        'traj.2021': 'Estágio · Moovefy',
+        'traj.2023': 'Full Stack · Moovefy',
+        'traj.2025': 'Pleno · Servimed',
+        'arch.title': 'Arquitetura & Boas Práticas',
+        'arch.subtitle': 'Padrões e abordagens que aplico nos projetos',
+        'contact.title': '📫 Vamos conversar?',
+        'contact.subtitle': 'Estou aberto a oportunidades como <strong>Full Stack</strong>, <strong>Backend</strong> ou <strong>Integrações</strong>.',
+        'contact.linkedin': 'Conectar no LinkedIn',
+        'contact.email': 'Enviar Email',
+        'contact.quote': 'Transformo complexidade em software que funciona — do legado à IA.',
+        'terminal.cmd': 'deploy --focus="integrations"'
+      },
+      en: {
+        'nav.about': 'About',
+        'nav.stack': 'Stack',
+        'nav.projects': 'Projects',
+        'nav.experience': 'Experience',
+        'nav.contact': 'Contact',
+        'hero.greeting': 'profile',
+        'hero.subtitle': 'Full Stack · Integrations · AI & Automation',
+        'hero.experience': '💼 5+ years of experience',
+        'hero.openToWork': 'Open to work',
+        'metrics.years': 'years of experience',
+        'metrics.companies': 'companies',
+        'metrics.projects': 'public projects',
+        'metrics.sector': 'Pharma & Healthcare',
+        'about.title': 'About me',
+        'about.subtitle': 'Who I am and what I do day to day',
+        'about.p1': 'Software Engineer with <strong>5 years of experience</strong> in <strong>Full Stack</strong> development, building scalable web applications, system integrations, and <strong>Artificial Intelligence</strong> solutions.',
+        'about.p2': 'I work on <strong>legacy system modernization</strong>, <strong>API</strong> development, software architecture, and process automation — focused on delivering business value with clean, testable, and well-documented code.',
+        'about.p3': 'Currently a <strong>Senior Systems Analyst</strong> at <strong>Servimed</strong>, leading MVPs, integrations, and architecture improvements on B2B platforms in the pharmaceutical and healthcare sector.',
+        'stack.title': 'Stack & Tools',
+        'stack.subtitle': 'Technologies I use daily',
+        'projects.featured.title': 'Featured Project',
+        'projects.featured.subtitle': 'FarmaBot — intelligent pharmacy assistant',
+        'projects.featured.label': '✦ Featured',
+        'projects.farmabot.quote': 'Automated pharmacy assistant via <strong>WhatsApp</strong>, with AI and metrics dashboard.',
+        'projects.farmabot.impact': 'End-to-end WhatsApp service with human handoff',
+        'projects.farmabot.desc': '<strong><a href="https://rafaelmastrangelli.github.io/FarmaBot/" style="color: var(--accent); text-decoration: none;">FarmaBot</a></strong> is a complete virtual assistant for pharmacies: customers chat on WhatsApp, browse the catalog, build a cart, provide an address, and proceed to payment — with transfer to a human agent when needed.',
+        'projects.farmabot.featuresTitle': 'Key features:',
+        'projects.farmabot.f1': 'WhatsApp support with per-session <strong>state machine</strong>',
+        'projects.farmabot.f2': 'Catalog with <strong>6 categories</strong> and <strong>14 products</strong>',
+        'projects.farmabot.f3': 'Cart, address, payment, and <strong>human handoff</strong>',
+        'projects.farmabot.f4': 'Dynamic responses with <strong>Groq Llama 3.3</strong>',
+        'projects.farmabot.f5': 'Metrics dashboard (orders, customers, KPIs) in <strong>React</strong>',
+        'projects.demo': 'View demo',
+        'projects.repo': 'Repository',
+        'projects.others.title': 'Other Projects',
+        'projects.others.subtitle': 'Public repositories on my profile',
+        'projects.treina.impact': 'Online courses with AI for content and moderation',
+        'projects.treina.desc': 'Online course platform with <strong>integrated AI</strong>: automatic summaries (OpenAI), covers (Leonardo.AI), content moderation, and sentiment analysis on reviews.',
+        'projects.finance.impact': 'Data visualization and portfolio management',
+        'projects.finance.desc': 'Investment dashboard with financial data visualization and portfolio management.',
+        'projects.es.impact': 'Scouting and performance analysis for pro players',
+        'projects.es.desc': 'SaaS with e-commerce, scouting system, and professional player performance analysis.',
+        'exp.title': 'Experience',
+        'exp.subtitle': 'Professional journey',
+        'exp.current': 'Present',
+        'exp.servimed.role': 'Senior Systems Analyst',
+        'exp.servimed.ctx': 'B2B pharmaceutical and healthcare platforms',
+        'exp.moovefy.role': 'Full Stack Developer',
+        'exp.moovefy.ctx': 'MVPs, integrations, and digital products',
+        'exp.intern.role': 'Web Development Intern',
+        'exp.intern.ctx': 'Web development and first production deliveries',
+        'exp.highlights': 'Recent highlights',
+        'exp.h1': 'API development and system integrations',
+        'exp.h2': 'Legacy application modernization',
+        'exp.h3': 'Node.js MVPs and AI-powered solutions',
+        'exp.h4': 'Architecture improvements and code quality',
+        'traj.title': 'Trajectory',
+        'traj.subtitle': 'Career milestones',
+        'traj.2021': 'Intern · Moovefy',
+        'traj.2023': 'Full Stack · Moovefy',
+        'traj.2025': 'Senior · Servimed',
+        'arch.title': 'Architecture & Best Practices',
+        'arch.subtitle': 'Patterns and approaches I apply in projects',
+        'contact.title': '📫 Let\'s talk?',
+        'contact.subtitle': 'Open to opportunities as <strong>Full Stack</strong>, <strong>Backend</strong>, or <strong>Integrations</strong>.',
+        'contact.linkedin': 'Connect on LinkedIn',
+        'contact.email': 'Send Email',
+        'contact.quote': 'I turn complexity into software that works — from legacy to AI.',
+        'terminal.cmd': 'deploy --focus="integrations"'
+      }
+    };
+
+    let currentLang = localStorage.getItem('lang') || 'pt';
+
+    function applyLang(lang) {
+      currentLang = lang;
+      localStorage.setItem('lang', lang);
+      document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+
+      document.querySelectorAll('[data-i18n]').forEach((el) => {
+        const key = el.dataset.i18n;
+        if (i18n[lang][key]) el.textContent = i18n[lang][key];
+      });
+
+      document.querySelectorAll('[data-i18n-html]').forEach((el) => {
+        const key = el.dataset.i18nHtml;
+        if (i18n[lang][key]) el.innerHTML = i18n[lang][key];
+      });
+
+      document.querySelectorAll('.lang-btn').forEach((btn) => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+      });
+
+      typeTerminal(i18n[lang]['terminal.cmd']);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach((btn) => {
+      btn.addEventListener('click', () => applyLang(btn.dataset.lang));
+    });
+
+    const terminalEl = document.getElementById('terminalCmd');
+    let terminalTimer;
+
+    function typeTerminal(text) {
+      if (!terminalEl) return;
+      clearTimeout(terminalTimer);
+      terminalEl.textContent = '';
+      let i = 0;
+      const tick = () => {
+        if (i <= text.length) {
+          terminalEl.textContent = text.slice(0, i);
+          i += 1;
+          terminalTimer = setTimeout(tick, 45);
+        }
+      };
+      tick();
+    }
+
     const nav = document.getElementById('nav');
     const scrollTopBtn = document.getElementById('scrollTop');
-    const sections = document.querySelectorAll('section[id], header.hero');
     const navLinks = document.querySelectorAll('.nav-links a');
 
     const onScroll = () => {
@@ -1208,9 +1713,7 @@
 
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
+        if (entry.isIntersecting) entry.target.classList.add('visible');
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
@@ -1228,6 +1731,8 @@
     }, { threshold: 0.35, rootMargin: `-${parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-height')) + 8}px 0px -50% 0px` });
 
     document.querySelectorAll('section[id]').forEach((section) => sectionObserver.observe(section));
+
+    applyLang(currentLang);
   </script>
 </body>
 </html>
