@@ -128,22 +128,8 @@ const rafael = {
         <code>TypeScript</code> <code>Node.js</code> <code>React</code>
       </p>
     </td>
-    <td width="50%" valign="top">
-      <p><em>Repositórios públicos do meu perfil. Projetos corporativos ficam no LinkedIn e no currículo.</em></p>
-    </td>
   </tr>
 </table>
-
----
-
-## 📊 GitHub Stats
-
-<div align="center">
-
-<img height="165" src="./profile/stats.svg" alt="GitHub Stats" />
-<img height="165" src="./profile/top-langs.svg" alt="Top Languages" />
-
-</div>
 
 ---
 
