@@ -7,23 +7,34 @@
   <title>Rafael Mastrangelli — Full Stack · Integrações · IA</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0f172a;
-      --bg-card: #1e293b;
-      --bg-card-hover: #243044;
-      --border: #334155;
-      --text: #e2e8f0;
+      --bg: #070b14;
+      --bg-elevated: #0f172a;
+      --bg-card: rgba(30, 41, 59, 0.55);
+      --bg-card-solid: #1e293b;
+      --border: rgba(148, 163, 184, 0.14);
+      --border-strong: rgba(56, 189, 248, 0.35);
+      --text: #f1f5f9;
       --text-muted: #94a3b8;
       --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.12);
       --accent-dim: #0ea5e9;
       --highlight: #818cf8;
-      --radius: 12px;
-      --shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+      --highlight-soft: rgba(129, 140, 248, 0.14);
+      --success: #34d399;
+      --radius: 16px;
+      --radius-sm: 10px;
+      --shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+      --shadow-soft: 0 8px 30px rgba(0, 0, 0, 0.22);
+      --nav-height: 72px;
+      --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: 'Inter', system-ui, sans-serif;
@@ -32,53 +43,313 @@
       line-height: 1.7;
       min-height: 100vh;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
 
-    body::before {
+    body::before,
+    body::after {
       content: '';
       position: fixed;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(56, 189, 248, 0.12), transparent),
-        radial-gradient(ellipse 60% 40% at 100% 100%, rgba(129, 140, 248, 0.08), transparent);
+      border-radius: 50%;
+      filter: blur(90px);
       pointer-events: none;
       z-index: 0;
     }
 
+    body::before {
+      width: 520px;
+      height: 520px;
+      top: -180px;
+      left: -120px;
+      background: rgba(56, 189, 248, 0.16);
+    }
+
+    body::after {
+      width: 480px;
+      height: 480px;
+      right: -140px;
+      bottom: -120px;
+      background: rgba(129, 140, 248, 0.12);
+    }
+
+    .noise {
+      position: fixed;
+      inset: 0;
+      opacity: 0.03;
+      pointer-events: none;
+      z-index: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    /* Nav */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: var(--nav-height);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 1.25rem;
+      transition: background var(--transition), border-color var(--transition), backdrop-filter var(--transition);
+    }
+
+    .nav.scrolled {
+      background: rgba(7, 11, 20, 0.78);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      width: 100%;
+      max-width: 1080px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .nav-brand {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-brand span { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 500;
+      padding: 0.45rem 0.75rem;
+      border-radius: 999px;
+      transition: color var(--transition), background var(--transition);
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    /* Layout */
     .container {
       position: relative;
       z-index: 1;
-      max-width: 900px;
+      max-width: 1080px;
       margin: 0 auto;
-      padding: 2.5rem 1.5rem 4rem;
+      padding: calc(var(--nav-height) + 2rem) 1.5rem 4rem;
+    }
+
+    section {
+      margin-bottom: 4rem;
+      scroll-margin-top: calc(var(--nav-height) + 1rem);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .section-header .icon {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: var(--accent-soft);
+      border: 1px solid var(--border-strong);
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .section-header h2 {
+      font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .section-header p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-top: 0.15rem;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     /* Hero */
     .hero {
-      text-align: center;
-      padding: 3rem 0 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      align-items: center;
+      padding: 2rem 0 3rem;
+      margin-bottom: 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .hero {
+        grid-template-columns: auto 1fr;
+        gap: 2.5rem;
+      }
+    }
+
+    .avatar-wrap {
+      position: relative;
+      width: fit-content;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 768px) {
+      .avatar-wrap { margin: 0; }
+    }
+
+    .avatar-ring {
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      background: conic-gradient(from 180deg, var(--accent), var(--highlight), var(--accent));
+      animation: spin 8s linear infinite;
+      opacity: 0.85;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .avatar {
+      position: relative;
+      width: 148px;
+      height: 148px;
+      border-radius: 50%;
+      border: 4px solid var(--bg);
+      object-fit: cover;
+      display: block;
+      background: var(--bg-card-solid);
+    }
+
+    .status-badge {
+      position: absolute;
+      bottom: 8px;
+      right: 4px;
+      background: var(--bg-elevated);
+      border: 1px solid rgba(52, 211, 153, 0.4);
+      color: var(--success);
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.25rem 0.55rem;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .status-badge::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--success);
+      box-shadow: 0 0 8px var(--success);
+      animation: pulse 2s ease infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.45; }
+    }
+
+    .hero-content { text-align: center; }
+
+    @media (min-width: 768px) {
+      .hero-content { text-align: left; }
+    }
+
+    .hero-greeting {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 0.85rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
     }
 
     .hero h1 {
-      font-size: clamp(2rem, 5vw, 2.75rem);
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%);
+      font-size: clamp(2.1rem, 5vw, 3.2rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero h1 .gradient {
+      background: linear-gradient(135deg, #fff 0%, var(--accent) 55%, var(--highlight) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
 
     .hero .subtitle {
-      font-size: 1.125rem;
+      font-size: clamp(1rem, 2vw, 1.2rem);
       color: var(--text-muted);
+      margin-bottom: 1rem;
+      max-width: 560px;
+    }
+
+    @media (min-width: 768px) {
+      .hero .subtitle { margin-left: 0; margin-right: 0; }
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      justify-content: center;
       margin-bottom: 1.5rem;
     }
 
-    .hero .meta {
-      font-size: 0.95rem;
+    @media (min-width: 768px) {
+      .hero-meta { justify-content: flex-start; }
+    }
+
+    .meta-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.45rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
       color: var(--text-muted);
-      margin-bottom: 1.75rem;
+      font-size: 0.85rem;
     }
 
     .badges {
@@ -88,63 +359,108 @@
       justify-content: center;
     }
 
+    @media (min-width: 768px) {
+      .badges { justify-content: flex-start; }
+    }
+
     .badges a {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      padding: 0.6rem 1.1rem;
-      border-radius: 8px;
+      padding: 0.7rem 1.15rem;
+      border-radius: 12px;
       font-size: 0.875rem;
       font-weight: 600;
       text-decoration: none;
       color: #fff;
-      transition: transform 0.15s, opacity 0.15s;
+      transition: transform var(--transition), box-shadow var(--transition);
+      box-shadow: var(--shadow-soft);
     }
 
-    .badges a:hover { transform: translateY(-2px); opacity: 0.9; }
-    .badge-linkedin { background: #0A66C2; }
-    .badge-github { background: #181717; border: 1px solid var(--border); }
-    .badge-email { background: #D14836; }
-
-    /* Sections */
-    section {
-      margin-bottom: 2.5rem;
+    .badges a:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
     }
 
-    section h2 {
-      font-size: 1.35rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-      color: var(--text);
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
+    .badge-linkedin { background: linear-gradient(135deg, #0A66C2, #004182); }
+    .badge-github { background: linear-gradient(135deg, #2d333b, #0d1117); border: 1px solid var(--border); }
+    .badge-email { background: linear-gradient(135deg, #ea4335, #c5221f); }
 
+    /* Cards */
     .card {
       background: var(--bg-card);
+      backdrop-filter: blur(12px);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 1.5rem;
-      box-shadow: var(--shadow);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-soft);
+      transition: border-color var(--transition), transform var(--transition);
+    }
+
+    .card:hover {
+      border-color: rgba(56, 189, 248, 0.22);
     }
 
     .card p { margin-bottom: 1rem; }
     .card p:last-child { margin-bottom: 0; }
-
     .card strong { color: #fff; }
 
+    .about-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 900px) {
+      .about-grid {
+        grid-template-columns: 1.1fr 0.9fr;
+        align-items: start;
+      }
+    }
+
+    .about-text p:last-child { margin-bottom: 0; }
+
     /* Code block */
-    pre {
-      background: #0d1117;
+    .code-window {
+      border-radius: var(--radius-sm);
+      overflow: hidden;
       border: 1px solid var(--border);
-      border-radius: 8px;
+      background: #0a0f18;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    }
+
+    .code-header {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.75rem 1rem;
+      background: rgba(255, 255, 255, 0.03);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .code-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .code-dot.red { background: #ff5f57; }
+    .code-dot.yellow { background: #febc2e; }
+    .code-dot.green { background: #28c840; }
+
+    .code-title {
+      margin-left: 0.5rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    pre {
       padding: 1.25rem;
       overflow-x: auto;
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.85rem;
-      line-height: 1.6;
-      margin-top: 1rem;
+      font-size: 0.82rem;
+      line-height: 1.65;
+      margin: 0;
     }
 
     pre .key { color: #79c0ff; }
@@ -153,27 +469,83 @@
     pre .arr { color: #d2a8ff; }
 
     /* Stack */
-    .stack-group { margin-bottom: 1.25rem; }
-    .stack-group:last-child { margin-bottom: 0; }
+    .stack-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    @media (min-width: 640px) {
+      .stack-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .stack-group {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 1.1rem;
+      transition: border-color var(--transition), background var(--transition);
+    }
+
+    .stack-group:hover {
+      border-color: var(--border-strong);
+      background: rgba(56, 189, 248, 0.04);
+    }
+
     .stack-group h3 {
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--text-muted);
-      margin-bottom: 0.6rem;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+      font-weight: 600;
     }
 
     .tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
+      gap: 0.45rem;
     }
 
-    .tags img { height: 28px; border-radius: 4px; }
+    .tags img {
+      height: 26px;
+      border-radius: 6px;
+      transition: transform var(--transition);
+    }
 
-    /* Featured project */
+    .tags img:hover { transform: scale(1.06); }
+
+    /* Featured */
     .featured {
-      border-left: 3px solid var(--accent);
+      position: relative;
+      overflow: hidden;
+      border-color: var(--border-strong);
+      background:
+        linear-gradient(135deg, rgba(56, 189, 248, 0.08), transparent 45%),
+        var(--bg-card);
+    }
+
+    .featured::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--accent), var(--highlight));
+    }
+
+    .featured-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      margin-bottom: 0.85rem;
     }
 
     .featured blockquote {
@@ -182,106 +554,159 @@
       margin: 0 0 1rem;
       color: var(--text-muted);
       font-style: italic;
+      font-size: 1.02rem;
+      line-height: 1.6;
     }
 
     .featured ul {
-      margin: 0.75rem 0 1rem 1.25rem;
+      margin: 0.75rem 0 1rem 0;
+      padding-left: 0;
+      list-style: none;
       color: var(--text-muted);
     }
 
-    .featured li { margin-bottom: 0.35rem; }
+    .featured li {
+      position: relative;
+      padding-left: 1.35rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .featured li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 600;
+    }
 
     .tech-codes {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.4rem;
-      margin: 1rem 0;
+      gap: 0.45rem;
+      margin: 1.25rem 0;
     }
 
     .tech-codes code {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.75rem;
-      background: #0d1117;
+      font-size: 0.72rem;
+      background: rgba(13, 17, 23, 0.8);
       border: 1px solid var(--border);
-      padding: 0.25rem 0.5rem;
-      border-radius: 4px;
+      padding: 0.3rem 0.55rem;
+      border-radius: 6px;
       color: var(--accent);
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      padding: 0.65rem 1.25rem;
-      background: #181717;
+      padding: 0.7rem 1.25rem;
+      background: rgba(255, 255, 255, 0.04);
       border: 1px solid var(--border);
-      border-radius: 8px;
+      border-radius: 12px;
       color: #fff;
       text-decoration: none;
       font-size: 0.875rem;
       font-weight: 600;
-      transition: background 0.15s, border-color 0.15s;
+      transition: background var(--transition), border-color var(--transition), transform var(--transition);
     }
 
     .btn:hover {
-      background: var(--bg-card-hover);
+      background: rgba(255, 255, 255, 0.08);
       border-color: var(--accent);
+      transform: translateY(-2px);
     }
 
     .btn-primary {
-      background: var(--accent-dim);
-      border-color: var(--accent);
+      background: linear-gradient(135deg, var(--accent-dim), var(--accent));
+      border-color: transparent;
+      color: #041018;
     }
 
-    .btn-primary:hover { background: var(--accent); }
+    .btn-primary:hover {
+      background: linear-gradient(135deg, var(--accent), #7dd3fc);
+      color: #041018;
+    }
 
-    /* Projects grid */
+    /* Projects */
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1rem;
     }
 
     .project-card {
       background: var(--bg-card);
+      backdrop-filter: blur(12px);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 1.25rem;
-      transition: border-color 0.15s, transform 0.15s;
+      padding: 1.35rem;
+      transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+      display: flex;
+      flex-direction: column;
     }
 
     .project-card:hover {
-      border-color: var(--accent);
-      transform: translateY(-2px);
+      border-color: var(--border-strong);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .project-card .emoji {
+      font-size: 1.5rem;
+      margin-bottom: 0.65rem;
+      display: block;
     }
 
     .project-card h3 {
-      font-size: 1.05rem;
-      margin-bottom: 0.6rem;
+      font-size: 1.08rem;
+      margin-bottom: 0.55rem;
+      letter-spacing: -0.01em;
     }
 
     .project-card h3 a {
-      color: var(--accent);
+      color: var(--text);
       text-decoration: none;
+      transition: color var(--transition);
     }
 
-    .project-card h3 a:hover { text-decoration: underline; }
+    .project-card h3 a:hover { color: var(--accent); }
 
     .project-card p {
       font-size: 0.9rem;
       color: var(--text-muted);
-      margin-bottom: 0.75rem;
+      margin-bottom: auto;
+      padding-bottom: 0.85rem;
+      flex-grow: 1;
     }
 
     .project-card.note {
-      display: flex;
+      justify-content: center;
       align-items: center;
+      text-align: center;
       font-style: italic;
       color: var(--text-muted);
       font-size: 0.9rem;
+      background: rgba(129, 140, 248, 0.06);
+      border-style: dashed;
     }
 
     /* Stats */
+    .stats-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-soft);
+    }
+
     .stats {
       display: flex;
       flex-wrap: wrap;
@@ -290,86 +715,277 @@
     }
 
     .stats img {
-      border-radius: 8px;
+      border-radius: 12px;
       max-width: 100%;
       height: auto;
+      border: 1px solid var(--border);
+      transition: transform var(--transition);
     }
 
-    /* Table */
-    .table-wrap { overflow-x: auto; }
+    .stats img:hover { transform: scale(1.02); }
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
+    /* Timeline */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.35rem;
+      padding: 1.1rem 1.1rem 1.1rem 1.35rem;
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      transition: background var(--transition), border-color var(--transition);
+    }
+
+    .timeline-item:hover {
+      background: var(--accent-soft);
+      border-color: var(--border-strong);
+    }
+
+    .timeline-item.current {
+      border-left-color: var(--success);
+      background: rgba(52, 211, 153, 0.06);
+    }
+
+    @media (min-width: 640px) {
+      .timeline-item {
+        grid-template-columns: 180px 1fr 1fr;
+        align-items: center;
+        gap: 1rem;
+      }
+    }
+
+    .timeline-period {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--accent);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .timeline-item.current .timeline-period { color: var(--success); }
+
+    .timeline-company { font-weight: 600; }
+    .timeline-role { color: var(--text-muted); font-size: 0.92rem; }
+
+    .highlights {
+      margin-top: 0.5rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .highlights h3 {
+      font-size: 0.95rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .highlights ul {
+      display: grid;
+      gap: 0.55rem;
+      list-style: none;
+    }
+
+    @media (min-width: 640px) {
+      .highlights ul { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .highlights li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.55rem;
+      color: var(--text-muted);
       font-size: 0.9rem;
     }
 
-    th, td {
-      padding: 0.75rem 1rem;
-      text-align: left;
-      border-bottom: 1px solid var(--border);
+    .highlights li::before {
+      content: '✦';
+      color: var(--highlight);
+      font-size: 0.7rem;
+      margin-top: 0.35rem;
+      flex-shrink: 0;
     }
-
-    th {
-      color: var(--text-muted);
-      font-weight: 600;
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-
-    tr:last-child td { border-bottom: none; }
 
     /* Architecture */
-    .arch-box {
-      font-family: 'JetBrains Mono', monospace;
+    .arch-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      justify-content: center;
+    }
+
+    .arch-pill {
+      padding: 0.55rem 0.95rem;
+      border-radius: 999px;
+      background: var(--highlight-soft);
+      border: 1px solid rgba(129, 140, 248, 0.25);
+      color: #c7d2fe;
       font-size: 0.85rem;
-      color: var(--text-muted);
-      text-align: center;
-      line-height: 1.9;
+      font-weight: 500;
+      transition: transform var(--transition), background var(--transition);
+    }
+
+    .arch-pill:hover {
+      transform: translateY(-2px);
+      background: rgba(129, 140, 248, 0.22);
     }
 
     /* CTA */
     .cta {
       text-align: center;
-      padding: 2rem 0;
+      padding: 2.5rem 2rem;
+      border-radius: var(--radius);
+      background:
+        radial-gradient(ellipse at top, rgba(56, 189, 248, 0.12), transparent 55%),
+        var(--bg-card);
+      border: 1px solid var(--border-strong);
+      box-shadow: var(--shadow);
     }
 
-    .cta p { margin-bottom: 1.25rem; color: var(--text-muted); }
+    .cta h2 {
+      font-size: clamp(1.4rem, 3vw, 1.75rem);
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
 
-    .cta .badges { margin-bottom: 2rem; }
+    .cta > p {
+      margin-bottom: 1.5rem;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta .badges {
+      justify-content: center;
+      margin-bottom: 1.75rem;
+    }
 
     .footer-quote {
-      text-align: center;
       font-style: italic;
       color: var(--text-muted);
-      font-size: 0.95rem;
-      margin-top: 2rem;
+      font-size: 1rem;
+      line-height: 1.6;
+      max-width: 480px;
+      margin: 0 auto;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border);
     }
 
+    .footer-quote::before {
+      content: '"';
+      color: var(--accent);
+      font-size: 1.5rem;
+      line-height: 0;
+      vertical-align: -0.3rem;
+      margin-right: 0.15rem;
+    }
+
+    /* Scroll top */
+    .scroll-top {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      border: 1px solid var(--border-strong);
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(10px);
+      color: var(--accent);
+      font-size: 1.1rem;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(12px);
+      transition: opacity var(--transition), visibility var(--transition), transform var(--transition), background var(--transition);
+      z-index: 99;
+    }
+
+    .scroll-top.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .scroll-top:hover {
+      background: var(--accent-soft);
+    }
+
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .container { padding-left: 1.1rem; padding-right: 1.1rem; }
+    }
   </style>
 </head>
 <body>
+  <div class="noise" aria-hidden="true"></div>
+
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="nav-brand" href="#">Rafael<span>.</span>dev</a>
+      <ul class="nav-links">
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#stack">Stack</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#experiencia">Experiência</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </div>
+  </nav>
+
   <div class="container">
 
-    <header class="hero">
-      <h1>Bem vindo!! 👋</h1>
-      <p class="subtitle">Full Stack · Integrações · IA &amp; Automação</p>
-      <p class="meta">📍 Bauru, SP · Brasil &nbsp;|&nbsp; 🎓 Sistemas de Informação (ITE)</p>
-      <div class="badges">
-        <a class="badge-linkedin" href="https://linkedin.com/in/rafael-mastrangelli-534472259" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="badge-github" href="https://github.com/RafaelMastrangelli" target="_blank" rel="noopener">GitHub</a>
-        <a class="badge-email" href="mailto:rafadmastrangelli@gmail.com">Email</a>
+    <header class="hero reveal">
+      <div class="avatar-wrap">
+        <div class="avatar-ring" aria-hidden="true"></div>
+        <img class="avatar" src="https://github.com/RafaelMastrangelli.png" alt="Rafael Mastrangelli" width="148" height="148">
+        <span class="status-badge">Open to work</span>
+      </div>
+      <div class="hero-content">
+        <div class="hero-greeting">👋 Olá, seja bem-vindo!</div>
+        <h1><span class="gradient">Rafael Mastrangelli</span></h1>
+        <p class="subtitle">Full Stack · Integrações · IA &amp; Automação</p>
+        <div class="hero-meta">
+          <span class="meta-pill">📍 Bauru, SP · Brasil</span>
+          <span class="meta-pill">🎓 Sistemas de Informação (ITE)</span>
+          <span class="meta-pill">💼 5+ anos de experiência</span>
+        </div>
+        <div class="badges">
+          <a class="badge-linkedin" href="https://linkedin.com/in/rafael-mastrangelli-534472259" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="badge-github" href="https://github.com/RafaelMastrangelli" target="_blank" rel="noopener">GitHub</a>
+          <a class="badge-email" href="mailto:rafadmastrangelli@gmail.com">Email</a>
+        </div>
       </div>
     </header>
 
-    <section>
-      <h2>💡 Sobre mim</h2>
-      <div class="card">
-        <p>Software Engineer com <strong>5 anos de experiência</strong> no <strong>Full Stack</strong>, construindo aplicações web escaláveis, integrações entre sistemas e soluções com <strong>Inteligência Artificial</strong>.</p>
-        <p>Atuo na <strong>modernização de sistemas legados</strong>, desenvolvimento de <strong>APIs</strong>, arquitetura de software e automação de processos — com foco em entregar valor de negócio com código limpo, testável e bem documentado.</p>
-        <p>Atualmente como <strong>Analista de Sistemas Pleno</strong> na <strong>Servimed</strong>, liderando MVPs, integrações e melhorias de arquitetura em plataformas B2B do setor farmacêutico e hospitalar.</p>
-        <pre><span class="key">const</span> rafael = {
+    <section id="sobre" class="reveal">
+      <div class="section-header">
+        <div class="icon">💡</div>
+        <div>
+          <h2>Sobre mim</h2>
+          <p>Quem sou e o que faço no dia a dia</p>
+        </div>
+      </div>
+      <div class="about-grid">
+        <div class="card about-text">
+          <p>Software Engineer com <strong>5 anos de experiência</strong> no <strong>Full Stack</strong>, construindo aplicações web escaláveis, integrações entre sistemas e soluções com <strong>Inteligência Artificial</strong>.</p>
+          <p>Atuo na <strong>modernização de sistemas legados</strong>, desenvolvimento de <strong>APIs</strong>, arquitetura de software e automação de processos — com foco em entregar valor de negócio com código limpo, testável e bem documentado.</p>
+          <p>Atualmente como <strong>Analista de Sistemas Pleno</strong> na <strong>Servimed</strong>, liderando MVPs, integrações e melhorias de arquitetura em plataformas B2B do setor farmacêutico e hospitalar.</p>
+        </div>
+        <div class="code-window">
+          <div class="code-header">
+            <span class="code-dot red"></span>
+            <span class="code-dot yellow"></span>
+            <span class="code-dot green"></span>
+            <span class="code-title">rafael.ts</span>
+          </div>
+          <pre><span class="key">const</span> rafael = {
   role: <span class="str">"Full Stack Software Developer"</span>,
   location: <span class="str">"Bauru, SP, Brazil"</span>,
   focus: <span class="arr">["Backend", "Integrações", "Arquitetura", "IA & Automação"]</span>,
@@ -377,63 +993,79 @@
   currentlyLearning: <span class="arr">["LLM Agents", "Workflow Automation", "Cloud & DevOps"]</span>,
   openToWork: <span class="bool">true</span>
 };</pre>
+        </div>
       </div>
     </section>
 
-    <section>
-      <h2>🛠️ Stack &amp; Ferramentas</h2>
+    <section id="stack" class="reveal">
+      <div class="section-header">
+        <div class="icon">🛠️</div>
+        <div>
+          <h2>Stack &amp; Ferramentas</h2>
+          <p>Tecnologias que uso no dia a dia</p>
+        </div>
+      </div>
       <div class="card">
-        <div class="stack-group">
-          <h3>Backend</h3>
-          <div class="tags">
-            <img src="https://img.shields.io/badge/C%23-512BD4?style=flat-square&logo=csharp&logoColor=white" alt="C#">
-            <img src="https://img.shields.io/badge/.NET-512BD4?style=flat-square&logo=dotnet&logoColor=white" alt=".NET">
-            <img src="https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white" alt="Node.js">
-            <img src="https://img.shields.io/badge/NestJS-E0234E?style=flat-square&logo=nestjs&logoColor=white" alt="NestJS">
-            <img src="https://img.shields.io/badge/Express-000000?style=flat-square&logo=express&logoColor=white" alt="Express">
-            <img src="https://img.shields.io/badge/PHP-777BB4?style=flat-square&logo=php&logoColor=white" alt="PHP">
-            <img src="https://img.shields.io/badge/Laravel-FF2D20?style=flat-square&logo=laravel&logoColor=white" alt="Laravel">
+        <div class="stack-grid">
+          <div class="stack-group">
+            <h3>Backend</h3>
+            <div class="tags">
+              <img src="https://img.shields.io/badge/C%23-512BD4?style=flat-square&logo=csharp&logoColor=white" alt="C#">
+              <img src="https://img.shields.io/badge/.NET-512BD4?style=flat-square&logo=dotnet&logoColor=white" alt=".NET">
+              <img src="https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white" alt="Node.js">
+              <img src="https://img.shields.io/badge/NestJS-E0234E?style=flat-square&logo=nestjs&logoColor=white" alt="NestJS">
+              <img src="https://img.shields.io/badge/Express-000000?style=flat-square&logo=express&logoColor=white" alt="Express">
+              <img src="https://img.shields.io/badge/PHP-777BB4?style=flat-square&logo=php&logoColor=white" alt="PHP">
+              <img src="https://img.shields.io/badge/Laravel-FF2D20?style=flat-square&logo=laravel&logoColor=white" alt="Laravel">
+            </div>
           </div>
-        </div>
-        <div class="stack-group">
-          <h3>Frontend</h3>
-          <div class="tags">
-            <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript">
-            <img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black" alt="React">
-            <img src="https://img.shields.io/badge/Vue.js-4FC08D?style=flat-square&logo=vuedotjs&logoColor=white" alt="Vue.js">
-            <img src="https://img.shields.io/badge/Angular-DD0031?style=flat-square&logo=angular&logoColor=white" alt="Angular">
-            <img src="https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=nextdotjs&logoColor=white" alt="Next.js">
-            <img src="https://img.shields.io/badge/Tailwind-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white" alt="Tailwind">
+          <div class="stack-group">
+            <h3>Frontend</h3>
+            <div class="tags">
+              <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript">
+              <img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black" alt="React">
+              <img src="https://img.shields.io/badge/Vue.js-4FC08D?style=flat-square&logo=vuedotjs&logoColor=white" alt="Vue.js">
+              <img src="https://img.shields.io/badge/Angular-DD0031?style=flat-square&logo=angular&logoColor=white" alt="Angular">
+              <img src="https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=nextdotjs&logoColor=white" alt="Next.js">
+              <img src="https://img.shields.io/badge/Tailwind-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white" alt="Tailwind">
+            </div>
           </div>
-        </div>
-        <div class="stack-group">
-          <h3>Banco de Dados &amp; Infra</h3>
-          <div class="tags">
-            <img src="https://img.shields.io/badge/Oracle-F80000?style=flat-square&logo=oracle&logoColor=white" alt="Oracle">
-            <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white" alt="PostgreSQL">
-            <img src="https://img.shields.io/badge/SQL_Server-CC2927?style=flat-square&logo=microsoftsqlserver&logoColor=white" alt="SQL Server">
-            <img src="https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white" alt="MongoDB">
-            <img src="https://img.shields.io/badge/Redis-DC382D?style=flat-square&logo=redis&logoColor=white" alt="Redis">
-            <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white" alt="Docker">
-            <img src="https://img.shields.io/badge/Azure-0078D4?style=flat-square&logo=microsoftazure&logoColor=white" alt="Azure">
-            <img src="https://img.shields.io/badge/AWS-232F3E?style=flat-square&logo=amazonaws&logoColor=white" alt="AWS">
+          <div class="stack-group">
+            <h3>Banco de Dados &amp; Infra</h3>
+            <div class="tags">
+              <img src="https://img.shields.io/badge/Oracle-F80000?style=flat-square&logo=oracle&logoColor=white" alt="Oracle">
+              <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white" alt="PostgreSQL">
+              <img src="https://img.shields.io/badge/SQL_Server-CC2927?style=flat-square&logo=microsoftsqlserver&logoColor=white" alt="SQL Server">
+              <img src="https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white" alt="MongoDB">
+              <img src="https://img.shields.io/badge/Redis-DC382D?style=flat-square&logo=redis&logoColor=white" alt="Redis">
+              <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white" alt="Docker">
+              <img src="https://img.shields.io/badge/Azure-0078D4?style=flat-square&logo=microsoftazure&logoColor=white" alt="Azure">
+              <img src="https://img.shields.io/badge/AWS-232F3E?style=flat-square&logo=amazonaws&logoColor=white" alt="AWS">
+            </div>
           </div>
-        </div>
-        <div class="stack-group">
-          <h3>IA &amp; Automação</h3>
-          <div class="tags">
-            <img src="https://img.shields.io/badge/OpenAI-412991?style=flat-square&logo=openai&logoColor=white" alt="OpenAI">
-            <img src="https://img.shields.io/badge/n8n-FF6D5A?style=flat-square&logo=n8n&logoColor=white" alt="n8n">
+          <div class="stack-group">
+            <h3>IA &amp; Automação</h3>
+            <div class="tags">
+              <img src="https://img.shields.io/badge/OpenAI-412991?style=flat-square&logo=openai&logoColor=white" alt="OpenAI">
+              <img src="https://img.shields.io/badge/n8n-FF6D5A?style=flat-square&logo=n8n&logoColor=white" alt="n8n">
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section>
-      <h2>⭐ Projeto em Destaque — FarmaBot</h2>
+    <section id="projetos" class="reveal">
+      <div class="section-header">
+        <div class="icon">⭐</div>
+        <div>
+          <h2>Projeto em Destaque</h2>
+          <p>FarmaBot — atendimento inteligente para farmácias</p>
+        </div>
+      </div>
       <div class="card featured">
+        <div class="featured-label">✦ Destaque</div>
         <blockquote>Bot de atendimento automatizado para farmácia via <strong>WhatsApp</strong>, com IA e dashboard de métricas.</blockquote>
-        <p>O <strong><a href="https://rafaelmastrangelli.github.io/FarmaBot/" style="color: var(--accent);">FarmaBot</a></strong> é um atendente virtual completo para farmácias: o cliente conversa pelo WhatsApp, navega pelo catálogo, monta o carrinho, informa endereço e segue para o pagamento — com transferência para atendente humano quando necessário.</p>
+        <p>O <strong><a href="https://rafaelmastrangelli.github.io/FarmaBot/" style="color: var(--accent); text-decoration: none;">FarmaBot</a></strong> é um atendente virtual completo para farmácias: o cliente conversa pelo WhatsApp, navega pelo catálogo, monta o carrinho, informa endereço e segue para o pagamento — com transferência para atendente humano quando necessário.</p>
         <p><strong>Principais funcionalidades:</strong></p>
         <ul>
           <li>Atendimento via WhatsApp com <strong>máquina de estados</strong> por sessão</li>
@@ -445,87 +1077,176 @@
         <div class="tech-codes">
           <code>n8n</code><code>OpenAI</code><code>Z-API</code><code>JavaScript</code><code>React</code><code>Express</code><code>PostgreSQL</code><code>Drizzle ORM</code><code>Tailwind</code>
         </div>
-        <a class="btn btn-primary" href="https://rafaelmastrangelli.github.io/FarmaBot/">Ver demo</a>
-        <a class="btn" href="https://github.com/RafaelMastrangelli/FarmaBot" style="margin-left: 0.5rem;">Repositório</a>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="https://rafaelmastrangelli.github.io/FarmaBot/">Ver demo</a>
+          <a class="btn" href="https://github.com/RafaelMastrangelli/FarmaBot">Repositório</a>
+        </div>
       </div>
-    </section>
 
-    <section>
-      <h2>🚀 Outros Projetos</h2>
+      <div class="section-header" style="margin-top: 2.5rem;">
+        <div class="icon">🚀</div>
+        <div>
+          <h2>Outros Projetos</h2>
+          <p>Repositórios públicos do meu perfil</p>
+        </div>
+      </div>
       <div class="projects-grid">
         <article class="project-card">
-          <h3>🎓 <a href="https://github.com/RafaelMastrangelli/TreinaMais">TreinaMais</a></h3>
+          <span class="emoji">🎓</span>
+          <h3><a href="https://github.com/RafaelMastrangelli/TreinaMais">TreinaMais</a></h3>
           <p>Plataforma de cursos online com <strong>IA integrada</strong>: geração automática de resumos (OpenAI), capas (Leonardo.AI), moderação de conteúdo e análise de sentimentos em avaliações.</p>
           <div class="tech-codes"><code>.NET</code><code>React</code><code>TypeScript</code><code>JWT</code><code>Swagger</code></div>
         </article>
         <article class="project-card">
-          <h3>📈 <a href="https://github.com/RafaelMastrangelli/FinanceHub">FinanceHub</a></h3>
+          <span class="emoji">📈</span>
+          <h3><a href="https://github.com/RafaelMastrangelli/FinanceHub">FinanceHub</a></h3>
           <p>Dashboard de investimentos com visualização de dados financeiros e gestão de portfólio.</p>
           <div class="tech-codes"><code>.NET</code><code>Vue.js</code><code>SQL</code></div>
         </article>
         <article class="project-card">
-          <h3>⚽ <a href="https://github.com/RafaelMastrangelli/ES-TOP1">ES-TOP1</a></h3>
+          <span class="emoji">⚽</span>
+          <h3><a href="https://github.com/RafaelMastrangelli/ES-TOP1">ES-TOP1</a></h3>
           <p>SaaS com E-commerce, sistema de scouting e análise de performance de jogadores profissionais.</p>
           <div class="tech-codes"><code>TypeScript</code><code>Node.js</code><code>React</code></div>
         </article>
         <article class="project-card note">
-          <p>Repositórios públicos do meu perfil. Projetos corporativos ficam no LinkedIn e no currículo.</p>
+          <p>Projetos corporativos ficam no LinkedIn e no currículo.</p>
         </article>
       </div>
     </section>
 
-    <section>
-      <h2>📊 GitHub Stats</h2>
-      <div class="stats">
-        <img height="165" src="https://raw.githubusercontent.com/RafaelMastrangelli/RafaelMastrangelli/main/profile/stats.svg" alt="GitHub Stats">
-        <img height="165" src="https://raw.githubusercontent.com/RafaelMastrangelli/RafaelMastrangelli/main/profile/top-langs.svg" alt="Top Languages">
-      </div>
-    </section>
-
-    <section>
-      <h2>💼 Experiência</h2>
-      <div class="card">
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr><th>Período</th><th>Empresa</th><th>Cargo</th></tr>
-            </thead>
-            <tbody>
-              <tr><td><strong>Nov 2025 – Atual</strong></td><td>Servimed Comercial</td><td>Analista de Sistemas Pleno</td></tr>
-              <tr><td><strong>Abr 2023 – Jun 2025</strong></td><td>Moovefy</td><td>Desenvolvedor Full Stack</td></tr>
-              <tr><td><strong>Dez 2021 – Jun 2023</strong></td><td>Moovefy</td><td>Estagiário em Desenvolvimento Web</td></tr>
-            </tbody>
-          </table>
+    <section class="reveal">
+      <div class="section-header">
+        <div class="icon">📊</div>
+        <div>
+          <h2>GitHub Stats</h2>
+          <p>Atividade e linguagens no GitHub</p>
         </div>
-        <p style="margin-top: 1.25rem;"><strong>Destaques recentes:</strong></p>
-        <ul style="margin-left: 1.25rem; color: var(--text-muted);">
-          <li>Desenvolvimento de APIs e integrações entre sistemas</li>
-          <li>Modernização de aplicações legadas</li>
-          <li>MVPs com Node.js e soluções com IA</li>
-          <li>Melhorias de arquitetura e qualidade de código</li>
-        </ul>
+      </div>
+      <div class="stats-card">
+        <div class="stats">
+          <img height="165" src="https://raw.githubusercontent.com/RafaelMastrangelli/RafaelMastrangelli/main/profile/stats.svg" alt="GitHub Stats">
+          <img height="165" src="https://raw.githubusercontent.com/RafaelMastrangelli/RafaelMastrangelli/main/profile/top-langs.svg" alt="Top Languages">
+        </div>
       </div>
     </section>
 
-    <section>
-      <h2>🏗️ Arquitetura &amp; Boas Práticas</h2>
-      <div class="card arch-box">
-        Clean Architecture · DDD · MVC/MVVM · Microsserviços<br>
-        TDD · Testes de Integração · Swagger/OpenAPI<br>
-        Provider Pattern · Repository Pattern · Factory Pattern
+    <section id="experiencia" class="reveal">
+      <div class="section-header">
+        <div class="icon">💼</div>
+        <div>
+          <h2>Experiência</h2>
+          <p>Trajetória profissional</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="timeline">
+          <div class="timeline-item current">
+            <span class="timeline-period">Nov 2025 – Atual</span>
+            <span class="timeline-company">Servimed Comercial</span>
+            <span class="timeline-role">Analista de Sistemas Pleno</span>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-period">Abr 2023 – Jun 2025</span>
+            <span class="timeline-company">Moovefy</span>
+            <span class="timeline-role">Desenvolvedor Full Stack</span>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-period">Dez 2021 – Jun 2023</span>
+            <span class="timeline-company">Moovefy</span>
+            <span class="timeline-role">Estagiário em Desenvolvimento Web</span>
+          </div>
+        </div>
+        <div class="highlights">
+          <h3>Destaques recentes</h3>
+          <ul>
+            <li>Desenvolvimento de APIs e integrações entre sistemas</li>
+            <li>Modernização de aplicações legadas</li>
+            <li>MVPs com Node.js e soluções com IA</li>
+            <li>Melhorias de arquitetura e qualidade de código</li>
+          </ul>
+        </div>
       </div>
     </section>
 
-    <section class="cta">
+    <section class="reveal">
+      <div class="section-header">
+        <div class="icon">🏗️</div>
+        <div>
+          <h2>Arquitetura &amp; Boas Práticas</h2>
+          <p>Padrões e abordagens que aplico nos projetos</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="arch-pills">
+          <span class="arch-pill">Clean Architecture</span>
+          <span class="arch-pill">DDD</span>
+          <span class="arch-pill">MVC / MVVM</span>
+          <span class="arch-pill">Microsserviços</span>
+          <span class="arch-pill">TDD</span>
+          <span class="arch-pill">Testes de Integração</span>
+          <span class="arch-pill">Swagger / OpenAPI</span>
+          <span class="arch-pill">Provider Pattern</span>
+          <span class="arch-pill">Repository Pattern</span>
+          <span class="arch-pill">Factory Pattern</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato" class="cta reveal">
       <h2>📫 Vamos conversar?</h2>
       <p>Estou aberto a oportunidades como <strong>Full Stack</strong>, <strong>Backend</strong> ou <strong>Integrações</strong>.</p>
       <div class="badges">
         <a class="badge-linkedin" href="https://linkedin.com/in/rafael-mastrangelli-534472259" target="_blank" rel="noopener">Conectar no LinkedIn</a>
         <a class="badge-email" href="mailto:rafadmastrangelli@gmail.com">Enviar Email</a>
       </div>
-      <p class="footer-quote">"Transformo complexidade em software que funciona — do legado à IA."</p>
+      <p class="footer-quote">Transformo complexidade em software que funciona — do legado à IA.</p>
     </section>
 
   </div>
+
+  <button class="scroll-top" id="scrollTop" aria-label="Voltar ao topo">↑</button>
+
+  <script>
+    const nav = document.getElementById('nav');
+    const scrollTopBtn = document.getElementById('scrollTop');
+    const sections = document.querySelectorAll('section[id], header.hero');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    const onScroll = () => {
+      nav.classList.toggle('scrolled', window.scrollY > 24);
+      scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const id = entry.target.id;
+        if (!id) return;
+        navLinks.forEach((link) => {
+          link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+        });
+      });
+    }, { threshold: 0.35, rootMargin: `-${parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-height')) + 8}px 0px -50% 0px` });
+
+    document.querySelectorAll('section[id]').forEach((section) => sectionObserver.observe(section));
+  </script>
 </body>
 </html>
