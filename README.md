@@ -9,7 +9,7 @@
 [![Portfolio](https://img.shields.io/badge/Portfolio-38bdf8?style=for-the-badge&logo=googlechrome&logoColor=white)](https://rafaelmastrangelli.github.io/RafaelMastrangelli/)
 [![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:rafadmastrangelli@gmail.com)
 
-📍 Bauru, SP · Brasil &nbsp;|&nbsp; 🎓 Sistemas de Informação (ITE)
+📍 Bauru, SP · Brasil &nbsp;|&nbsp; 🎓 Sistemas de Informação (ITE).
 
 </div>
 
