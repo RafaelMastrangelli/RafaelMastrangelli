@@ -128,6 +128,13 @@ const rafael = {
         <code>TypeScript</code> <code>Node.js</code> <code>React</code>
       </p>
     </td>
+      <td width="50%" valign="top">
+      <h3>🤖 <a href="https://github.com/RafaelMastrangelli/ES-TOP1">ErnandesBot</a></h3>
+      <p>Bot de documentacao e apresentacao de repositorios</p>
+      <p>
+        <code>LLM</code> <code>Node.js</code> <code>RabbitMQ</code>
+      </p>
+    </td>
   </tr>
 </table>
 
