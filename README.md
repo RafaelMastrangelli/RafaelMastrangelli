@@ -129,8 +129,8 @@ const rafael = {
       </p>
     </td>
       <td width="50%" valign="top">
-      <h3>🤖 <a href="https://github.com/RafaelMastrangelli/ES-TOP1">ErnandesBot</a></h3>
-      <p>Bot de documentacao e apresentacao de repositorios</p>
+      <h3>🤖 <a href="https://github.com/RafaelMastrangelli/ErnandesBot">ErnandesBot</a></h3>
+      <p>Bot de criação de documentação/apresentação de repositórios</p>
       <p>
         <code>LLM</code> <code>Node.js</code> <code>RabbitMQ</code>
       </p>
