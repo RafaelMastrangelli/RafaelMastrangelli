@@ -1236,7 +1236,7 @@
           <span class="metric-label" data-i18n="metrics.companies">empresas</span>
         </div>
         <div class="metric">
-          <span class="metric-value">5+</span>
+          <span class="metric-value">6+</span>
           <span class="metric-label" data-i18n="metrics.projects">projetos públicos</span>
         </div>
         <div class="metric">
@@ -1344,33 +1344,32 @@
         <div class="icon">⭐</div>
         <div>
           <h2 data-i18n="projects.featured.title">Projeto em Destaque</h2>
-          <p data-i18n="projects.featured.subtitle">FarmaBot — atendimento inteligente para farmácias</p>
+          <p data-i18n="projects.featured.subtitle">AimJob — SaaS de carreira com IA</p>
         </div>
       </div>
       <div class="card featured">
         <div class="featured-label" data-i18n="projects.featured.label">✦ Destaque</div>
         <div class="project-meta">
           <span class="domain-tag">IA</span>
-          <span class="domain-tag highlight">Pharma</span>
-          <span class="domain-tag">WhatsApp</span>
+          <span class="domain-tag highlight">SaaS</span>
+          <span class="domain-tag">Carreira</span>
         </div>
-        <blockquote data-i18n-html="projects.farmabot.quote"></blockquote>
-        <p class="project-impact" data-i18n="projects.farmabot.impact">Atendimento WhatsApp end-to-end com handoff para humano</p>
-        <p data-i18n-html="projects.farmabot.desc"></p>
-        <p><strong data-i18n="projects.farmabot.featuresTitle">Principais funcionalidades:</strong></p>
+        <blockquote data-i18n-html="projects.aimjob.quote"></blockquote>
+        <p class="project-impact" data-i18n="projects.aimjob.impact">Captura de vagas, inbox e planos de estudo com LLM — em produção</p>
+        <p data-i18n-html="projects.aimjob.desc"></p>
+        <p><strong data-i18n="projects.aimjob.featuresTitle">Principais funcionalidades:</strong></p>
         <ul>
-          <li data-i18n-html="projects.farmabot.f1"></li>
-          <li data-i18n-html="projects.farmabot.f2"></li>
-          <li data-i18n-html="projects.farmabot.f3"></li>
-          <li data-i18n-html="projects.farmabot.f4"></li>
-          <li data-i18n-html="projects.farmabot.f5"></li>
+          <li data-i18n-html="projects.aimjob.f1"></li>
+          <li data-i18n-html="projects.aimjob.f2"></li>
+          <li data-i18n-html="projects.aimjob.f3"></li>
+          <li data-i18n-html="projects.aimjob.f4"></li>
+          <li data-i18n-html="projects.aimjob.f5"></li>
         </ul>
         <div class="tech-codes">
-          <code>n8n</code><code>OpenAI</code><code>Z-API</code><code>JavaScript</code><code>React</code><code>Express</code><code>PostgreSQL</code><code>Drizzle ORM</code><code>Tailwind</code>
+          <code>NestJS</code><code>Next.js</code><code>PostgreSQL</code><code>Prisma</code><code>Redis</code><code>BullMQ</code><code>Groq</code><code>Playwright</code><code>Stripe</code><code>Telegram</code><code>Docker</code>
         </div>
         <div class="btn-row">
-          <a class="btn btn-primary" href="https://rafaelmastrangelli.github.io/FarmaBot/" data-i18n="projects.demo">Ver demo</a>
-          <a class="btn" href="https://github.com/RafaelMastrangelli/FarmaBot" data-i18n="projects.repo">Repositório</a>
+          <a class="btn btn-primary" href="https://aimjob.cloud/" target="_blank" rel="noopener" data-i18n="projects.live">Ver em produção</a>
         </div>
       </div>
 
@@ -1383,6 +1382,14 @@
         </div>
       </div>
       <div class="projects-grid">
+        <article class="project-card">
+          <div class="project-meta"><span class="domain-tag">IA</span><span class="domain-tag highlight">Pharma</span><span class="domain-tag">WhatsApp</span></div>
+          <span class="emoji">💊</span>
+          <h3><a href="https://rafaelmastrangelli.github.io/FarmaBot/">FarmaBot</a></h3>
+          <p class="project-impact" data-i18n="projects.farmabot.impact">Atendimento WhatsApp end-to-end com handoff para humano</p>
+          <p data-i18n-html="projects.farmabot.cardDesc"></p>
+          <div class="tech-codes"><code>n8n</code><code>OpenAI</code><code>React</code><code>Express</code><code>PostgreSQL</code></div>
+        </article>
         <article class="project-card">
           <div class="project-meta"><span class="domain-tag">IA</span><span class="domain-tag highlight">EdTech</span></div>
           <span class="emoji">🎓</span>
@@ -1556,21 +1563,24 @@
         'stack.title': 'Stack & Ferramentas',
         'stack.subtitle': 'Tecnologias que uso no dia a dia',
         'projects.featured.title': 'Projeto em Destaque',
-        'projects.featured.subtitle': 'FarmaBot — atendimento inteligente para farmácias',
+        'projects.featured.subtitle': 'AimJob — SaaS de carreira com IA',
         'projects.featured.label': '✦ Destaque',
-        'projects.farmabot.quote': 'Bot de atendimento automatizado para farmácia via <strong>WhatsApp</strong>, com IA e dashboard de métricas.',
-        'projects.farmabot.impact': 'Atendimento WhatsApp end-to-end com handoff para humano',
-        'projects.farmabot.desc': 'O <strong><a href="https://rafaelmastrangelli.github.io/FarmaBot/" style="color: var(--accent); text-decoration: none;">FarmaBot</a></strong> é um atendente virtual completo para farmácias: o cliente conversa pelo WhatsApp, navega pelo catálogo, monta o carrinho, informa endereço e segue para o pagamento — com transferência para atendente humano quando necessário.',
-        'projects.farmabot.featuresTitle': 'Principais funcionalidades:',
-        'projects.farmabot.f1': 'Atendimento via WhatsApp com <strong>máquina de estados</strong> por sessão',
-        'projects.farmabot.f2': 'Catálogo com <strong>6 categorias</strong> e <strong>14 produtos</strong>',
-        'projects.farmabot.f3': 'Carrinho, endereço, pagamento e <strong>handoff para humano</strong>',
-        'projects.farmabot.f4': 'Respostas dinâmicas com <strong>Groq Llama 3.3</strong>',
-        'projects.farmabot.f5': 'Dashboard de métricas (pedidos, clientes, KPIs) em <strong>React</strong>',
+        'projects.aimjob.quote': 'Plataforma multi-tenant que captura vagas, organiza a candidatura e gera planos de estudo com <strong>IA</strong>.',
+        'projects.aimjob.impact': 'Captura de vagas, inbox e planos de estudo com LLM — em produção',
+        'projects.aimjob.desc': 'O <strong><a href="https://aimjob.cloud/" style="color: var(--accent); text-decoration: none;" target="_blank" rel="noopener">AimJob</a></strong> é um SaaS de carreira: busca vagas no LinkedIn e Gupy, centraliza no inbox, notifica no Telegram e gera planos de estudo + pré-entrevista com voz — com billing Stripe e arquitetura Clean/DDD.',
+        'projects.aimjob.featuresTitle': 'Principais funcionalidades:',
+        'projects.aimjob.f1': 'Captura multi-fonte (<strong>LinkedIn</strong> via Playwright + <strong>Gupy</strong>) com fila async',
+        'projects.aimjob.f2': 'Inbox multi-tenant: status, notas e fluxo de candidatura',
+        'projects.aimjob.f3': 'Planos de estudo com <strong>LLM (Groq)</strong> e pré-entrevista por voz (Whisper)',
+        'projects.aimjob.f4': 'Notificações no <strong>Telegram</strong> por conta',
+        'projects.aimjob.f5': 'Billing com <strong>Stripe</strong> (planos Free/Pro/Business e cotas)',
+        'projects.live': 'Ver em produção',
         'projects.demo': 'Ver demo',
         'projects.repo': 'Repositório',
         'projects.others.title': 'Outros Projetos',
         'projects.others.subtitle': 'Repositórios públicos do meu perfil',
+        'projects.farmabot.impact': 'Atendimento WhatsApp end-to-end com handoff para humano',
+        'projects.farmabot.cardDesc': 'Atendente virtual para farmácias via <strong>WhatsApp</strong>: catálogo, carrinho, pagamento e handoff humano, com dashboard de métricas.',
         'projects.treina.impact': 'Cursos online com IA para conteúdo e moderação',
         'projects.treina.desc': 'Plataforma de cursos online com <strong>IA integrada</strong>: geração automática de resumos (OpenAI), capas (Leonardo.AI), moderação de conteúdo e análise de sentimentos em avaliações.',
         'projects.finance.impact': 'Visualização de dados e gestão de portfólio',
@@ -1631,21 +1641,24 @@
         'stack.title': 'Stack & Tools',
         'stack.subtitle': 'Technologies I use daily',
         'projects.featured.title': 'Featured Project',
-        'projects.featured.subtitle': 'FarmaBot — intelligent pharmacy assistant',
+        'projects.featured.subtitle': 'AimJob — AI-powered career SaaS',
         'projects.featured.label': '✦ Featured',
-        'projects.farmabot.quote': 'Automated pharmacy assistant via <strong>WhatsApp</strong>, with AI and metrics dashboard.',
-        'projects.farmabot.impact': 'End-to-end WhatsApp service with human handoff',
-        'projects.farmabot.desc': '<strong><a href="https://rafaelmastrangelli.github.io/FarmaBot/" style="color: var(--accent); text-decoration: none;">FarmaBot</a></strong> is a complete virtual assistant for pharmacies: customers chat on WhatsApp, browse the catalog, build a cart, provide an address, and proceed to payment — with transfer to a human agent when needed.',
-        'projects.farmabot.featuresTitle': 'Key features:',
-        'projects.farmabot.f1': 'WhatsApp support with per-session <strong>state machine</strong>',
-        'projects.farmabot.f2': 'Catalog with <strong>6 categories</strong> and <strong>14 products</strong>',
-        'projects.farmabot.f3': 'Cart, address, payment, and <strong>human handoff</strong>',
-        'projects.farmabot.f4': 'Dynamic responses with <strong>Groq Llama 3.3</strong>',
-        'projects.farmabot.f5': 'Metrics dashboard (orders, customers, KPIs) in <strong>React</strong>',
+        'projects.aimjob.quote': 'Multi-tenant platform that captures jobs, organizes applications, and generates study plans with <strong>AI</strong>.',
+        'projects.aimjob.impact': 'Job capture, inbox, and LLM study plans — live in production',
+        'projects.aimjob.desc': '<strong><a href="https://aimjob.cloud/" style="color: var(--accent); text-decoration: none;" target="_blank" rel="noopener">AimJob</a></strong> is a career SaaS: discovers roles on LinkedIn and Gupy, centralizes them in an inbox, notifies via Telegram, and generates study plans + voice pre-interviews — with Stripe billing and Clean/DDD architecture.',
+        'projects.aimjob.featuresTitle': 'Key features:',
+        'projects.aimjob.f1': 'Multi-source capture (<strong>LinkedIn</strong> via Playwright + <strong>Gupy</strong>) with async workers',
+        'projects.aimjob.f2': 'Multi-tenant inbox: status, notes, and application workflow',
+        'projects.aimjob.f3': 'Study plans with <strong>LLM (Groq)</strong> and voice pre-interview (Whisper)',
+        'projects.aimjob.f4': 'Per-account <strong>Telegram</strong> notifications',
+        'projects.aimjob.f5': '<strong>Stripe</strong> billing (Free/Pro/Business plans and quotas)',
+        'projects.live': 'View live product',
         'projects.demo': 'View demo',
         'projects.repo': 'Repository',
         'projects.others.title': 'Other Projects',
         'projects.others.subtitle': 'Public repositories on my profile',
+        'projects.farmabot.impact': 'End-to-end WhatsApp service with human handoff',
+        'projects.farmabot.cardDesc': 'Virtual pharmacy assistant via <strong>WhatsApp</strong>: catalog, cart, payment, and human handoff, plus a metrics dashboard.',
         'projects.treina.impact': 'Online courses with AI for content and moderation',
         'projects.treina.desc': 'Online course platform with <strong>integrated AI</strong>: automatic summaries (OpenAI), covers (Leonardo.AI), content moderation, and sentiment analysis on reviews.',
         'projects.finance.impact': 'Data visualization and portfolio management',

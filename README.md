@@ -71,29 +71,29 @@ const rafael = {
 
 ---
 
-## ⭐ Projeto em Destaque — FarmaBot
+## ⭐ Projeto em Destaque — AimJob
 
-> Bot de atendimento automatizado para farmácia via **WhatsApp**, com IA e dashboard de métricas.
+> SaaS multi-tenant de carreira: captura de vagas, inbox e planos de estudo com **IA**.
 
 <table>
   <tr>
     <td>
       <p>
-        O <strong><a href="https://rafaelmastrangelli.github.io/FarmaBot/">FarmaBot</a></strong> é um atendente virtual completo para farmácias: o cliente conversa pelo WhatsApp, navega pelo catálogo, monta o carrinho, informa endereço e segue para o pagamento — com transferência para atendente humano quando necessário.
+        O <strong><a href="https://aimjob.cloud/">AimJob</a></strong> captura vagas no LinkedIn e Gupy, centraliza no inbox, notifica no Telegram e gera planos de estudo + pré-entrevista com voz — com billing Stripe e arquitetura Clean/DDD (NestJS + Next.js).
       </p>
       <p><strong>Principais funcionalidades:</strong></p>
       <ul>
-        <li>Atendimento via WhatsApp com <strong>máquina de estados</strong> por sessão</li>
-        <li>Catálogo com <strong>6 categorias</strong> e <strong>14 produtos</strong></li>
-        <li>Carrinho, endereço, pagamento e <strong>handoff para humano</strong></li>
-        <li>Respostas dinâmicas com <strong>Groq Llama 3.3</strong></li>
-        <li>Dashboard de métricas (pedidos, clientes, KPIs) em <strong>React</strong></li>
+        <li>Captura multi-fonte (<strong>LinkedIn</strong> + <strong>Gupy</strong>) com worker async</li>
+        <li>Inbox multi-tenant com status, notas e fluxo de candidatura</li>
+        <li>Planos de estudo com <strong>LLM (Groq)</strong> e pré-entrevista por voz</li>
+        <li>Notificações no <strong>Telegram</strong> por conta</li>
+        <li>Billing com <strong>Stripe</strong> (Free/Pro/Business e cotas)</li>
       </ul>
       <p>
-        <code>n8n</code> <code>OpenAI</code> <code>Z-API</code> <code>JavaScript</code> <code>React</code> <code>Express</code> <code>PostgreSQL</code> <code>Drizzle ORM</code> <code>Tailwind</code>
+        <code>NestJS</code> <code>Next.js</code> <code>PostgreSQL</code> <code>Prisma</code> <code>Redis</code> <code>BullMQ</code> <code>Groq</code> <code>Playwright</code> <code>Stripe</code> <code>Telegram</code> <code>Docker</code>
       </p>
       <p>
-        <a href="https://github.com/RafaelMastrangelli/FarmaBot"><img src="https://img.shields.io/badge/Ver_repositório-181717?style=for-the-badge&logo=github&logoColor=white" alt="FarmaBot no GitHub" /></a>
+        <a href="https://aimjob.cloud/"><img src="https://img.shields.io/badge/Ver_em_produção-38bdf8?style=for-the-badge&logo=googlechrome&logoColor=white" alt="AimJob em produção" /></a>
       </p>
     </td>
   </tr>
@@ -106,21 +106,28 @@ const rafael = {
 <table>
   <tr>
     <td width="50%" valign="top">
+      <h3>💊 <a href="https://rafaelmastrangelli.github.io/FarmaBot/">FarmaBot</a></h3>
+      <p>Atendente virtual para farmácias via <strong>WhatsApp</strong>: catálogo, carrinho, pagamento e handoff humano, com dashboard de métricas.</p>
+      <p>
+        <code>n8n</code> <code>OpenAI</code> <code>React</code> <code>Express</code> <code>PostgreSQL</code>
+      </p>
+    </td>
+    <td width="50%" valign="top">
       <h3>🎓 <a href="https://github.com/RafaelMastrangelli/TreinaMais">TreinaMais</a></h3>
       <p>Plataforma de cursos online com <strong>IA integrada</strong>: geração automática de resumos (OpenAI), capas (Leonardo.AI), moderação de conteúdo e análise de sentimentos em avaliações.</p>
       <p>
         <code>.NET</code> <code>React</code> <code>TypeScript</code> <code>JWT</code> <code>Swagger</code>
       </p>
     </td>
-    <td width="50%" valign="top">
-      <h3>📈 <a href="https://github.com/RafaelMastrangelli/FinanceHub">FinanceHub</a></h3>
-      <p>Dashboard de investimentos com visualização de dados financeiros e gestão de portfólio.</p>
-      <p>
-        <code>.NET</code> <code>Vue.js</code> <code>SQL</code>
-      </p>
-    </td>
   </tr>
   <tr>
+    <td width="50%" valign="top">
+      <h3>🤖 <a href="https://github.com/RafaelMastrangelli/ErnandesBot">ErnandesBot</a></h3>
+      <p>Bot de criação de documentação/apresentação de repositórios com LLM, fila e webhooks.</p>
+      <p>
+        <code>LLM</code> <code>Node.js</code> <code>RabbitMQ</code>
+      </p>
+    </td>
     <td width="50%" valign="top">
       <h3>⚽ <a href="https://github.com/RafaelMastrangelli/ES-TOP1">ES-TOP1</a></h3>
       <p>SaaS com E-commerce, sistema de scouting e análise de performance de jogadores profissionais.</p>
@@ -128,13 +135,16 @@ const rafael = {
         <code>TypeScript</code> <code>Node.js</code> <code>React</code>
       </p>
     </td>
-      <td width="50%" valign="top">
-      <h3>🤖 <a href="https://github.com/RafaelMastrangelli/ErnandesBot">ErnandesBot</a></h3>
-      <p>Bot de criação de documentação/apresentação de repositórios</p>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <h3>📈 <a href="https://github.com/RafaelMastrangelli/FinanceHub">FinanceHub</a></h3>
+      <p>Dashboard de investimentos com visualização de dados financeiros e gestão de portfólio.</p>
       <p>
-        <code>LLM</code> <code>Node.js</code> <code>RabbitMQ</code>
+        <code>.NET</code> <code>Vue.js</code> <code>SQL</code>
       </p>
     </td>
+    <td width="50%" valign="top"></td>
   </tr>
 </table>
 
