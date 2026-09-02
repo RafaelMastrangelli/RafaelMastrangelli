@@ -981,6 +981,38 @@
       margin-top: 0.15rem;
     }
 
+    .timeline-bullets {
+      list-style: none;
+      margin: 0.85rem 0 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .timeline-bullets li {
+      position: relative;
+      padding-left: 0.9rem;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .timeline-bullets li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.55rem;
+      width: 4px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .timeline-bullets strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
     .traj-grid {
       display: grid;
       gap: 0.75rem;
@@ -1177,7 +1209,7 @@
 
   <nav class="nav" id="nav">
     <div class="nav-inner">
-      <a class="nav-brand" href="#">Rafael<span>.</span>dev</a>
+      <a class="nav-brand" href="#">Rafael<span> </span>Mastrangelli</a>
       <div class="nav-right">
         <ul class="nav-links">
           <li><a href="#sobre" data-i18n="nav.about">Sobre</a></li>
@@ -1355,7 +1387,7 @@
           <span class="domain-tag">Carreira</span>
         </div>
         <blockquote data-i18n-html="projects.aimjob.quote"></blockquote>
-        <p class="project-impact" data-i18n="projects.aimjob.impact">Captura de vagas, inbox e planos de estudo com LLM — em produção</p>
+        <p class="project-impact" data-i18n="projects.aimjob.impact">Captura LinkedIn/Gupy, match, LLM e billing Stripe — em produção</p>
         <p data-i18n-html="projects.aimjob.desc"></p>
         <p><strong data-i18n="projects.aimjob.featuresTitle">Principais funcionalidades:</strong></p>
         <ul>
@@ -1439,9 +1471,15 @@
           <div class="timeline-item current">
             <span class="timeline-period">Nov 2025 – <span data-i18n="exp.current">Atual</span></span>
             <div class="timeline-main">
-              <span class="timeline-company">Servimed Comercial</span>
+              <span class="timeline-company">Servimed Comercial LTDA</span>
               <span class="timeline-role" data-i18n="exp.servimed.role">Analista de Sistemas Pleno</span>
-              <span class="timeline-context" data-i18n="exp.servimed.ctx">Plataformas B2B farmacêutico e hospitalar</span>
+              <span class="timeline-context" data-i18n="exp.servimed.ctx">Sistemas corporativos B2B — distribuição farmacêutica e hospitalar</span>
+              <ul class="timeline-bullets">
+                <li data-i18n-html="exp.servimed.b1">Desenvolvimento da <strong>API de Integração SH</strong> com <strong>NestJS</strong> e <strong>Oracle</strong> (middleware HUMA, sync de cotações/pedidos e webhooks).</li>
+                <li data-i18n-html="exp.servimed.b2">Evolução do Portal Empresarial: API REST com JWT, TypeSense, checkout e pedidos (<strong>Express</strong>, <strong>PostgreSQL</strong>, <strong>Redis</strong>).</li>
+                <li data-i18n-html="exp.servimed.b3">Integrações hospitalares (Bionexo, Apoio, GTPlan) e Portal de Devolução com <strong>.NET Core</strong>, <strong>Vue.js</strong>, <strong>PHP 8</strong> e Oracle.</li>
+                <li data-i18n-html="exp.servimed.b4">Automação com <strong>AI Doc Agent</strong> (Node.js + OpenAI / RabbitMQ) e modernização de sistemas legados.</li>
+              </ul>
             </div>
           </div>
           <div class="timeline-item">
@@ -1449,7 +1487,13 @@
             <div class="timeline-main">
               <span class="timeline-company">Moovefy</span>
               <span class="timeline-role" data-i18n="exp.moovefy.role">Desenvolvedor Full Stack</span>
-              <span class="timeline-context" data-i18n="exp.moovefy.ctx">MVPs, integrações e produtos digitais</span>
+              <span class="timeline-context" data-i18n="exp.moovefy.ctx">Aplicações web novas e legadas — backend, integrações e entrega contínua</span>
+              <ul class="timeline-bullets">
+                <li data-i18n-html="exp.moovefy.b1">Desenvolvimento com <strong>.NET</strong> e <strong>Vue.js</strong> (MVC, MVVM, microsserviços + gRPC).</li>
+                <li data-i18n-html="exp.moovefy.b2">Modernização de sistemas legados e integração de APIs REST internas e de terceiros.</li>
+                <li data-i18n-html="exp.moovefy.b3">Funcionalidades em <strong>Node.js</strong>, <strong>Laravel</strong> e <strong>AngularJS</strong>; jobs agendados e deploy em servidores Linux.</li>
+                <li data-i18n-html="exp.moovefy.b4">Trabalho em equipes multidisciplinares com <strong>Scrum</strong>, Clean Architecture e DDD.</li>
+              </ul>
             </div>
           </div>
           <div class="timeline-item">
@@ -1457,7 +1501,11 @@
             <div class="timeline-main">
               <span class="timeline-company">Moovefy</span>
               <span class="timeline-role" data-i18n="exp.intern.role">Estagiário em Desenvolvimento Web</span>
-              <span class="timeline-context" data-i18n="exp.intern.ctx">Desenvolvimento web e primeiras entregas em produção</span>
+              <span class="timeline-context" data-i18n="exp.intern.ctx">Criação, manutenção e primeiras entregas em produção</span>
+              <ul class="timeline-bullets">
+                <li data-i18n-html="exp.intern.b1">Desenvolvimento e manutenção com <strong>C# (.NET)</strong>, <strong>Vue.js</strong> e DevExpress (MVC + Scrum).</li>
+                <li data-i18n-html="exp.intern.b2">Correções, melhorias e integração de serviços via APIs REST em sistemas em produção.</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -1488,10 +1536,10 @@
         <div class="highlights">
           <h3 data-i18n="exp.highlights">Destaques recentes</h3>
           <ul>
-            <li data-i18n="exp.h1">Desenvolvimento de APIs e integrações entre sistemas</li>
-            <li data-i18n="exp.h2">Modernização de aplicações legadas</li>
-            <li data-i18n="exp.h3">MVPs com Node.js e soluções com IA</li>
-            <li data-i18n="exp.h4">Melhorias de arquitetura e qualidade de código</li>
+            <li data-i18n="exp.h1">API de Integração SH (NestJS + Oracle) com sync e webhooks</li>
+            <li data-i18n="exp.h2">Portal Empresarial: JWT, TypeSense, checkout e pedidos</li>
+            <li data-i18n="exp.h3">Integrações hospitalares Bionexo, Apoio e GTPlan</li>
+            <li data-i18n="exp.h4">AI Doc Agent e modernização do Portal de Devolução</li>
           </ul>
         </div>
       </div>
@@ -1557,21 +1605,21 @@
         'metrics.sector': 'Pharma & Hospitalar',
         'about.title': 'Sobre mim',
         'about.subtitle': 'Quem sou e o que faço no dia a dia',
-        'about.p1': 'Software Engineer com <strong>5 anos de experiência</strong> no <strong>Full Stack</strong>, construindo aplicações web escaláveis, integrações entre sistemas e soluções com <strong>Inteligência Artificial</strong>.',
-        'about.p2': 'Atuo na <strong>modernização de sistemas legados</strong>, desenvolvimento de <strong>APIs</strong>, arquitetura de software e automação de processos — com foco em entregar valor de negócio com código limpo, testável e bem documentado.',
-        'about.p3': 'Atualmente como <strong>Analista de Sistemas Pleno</strong> na <strong>Servimed</strong>, liderando MVPs, integrações e melhorias de arquitetura em plataformas B2B do setor farmacêutico e hospitalar.',
+        'about.p1': 'Software Engineer / Desenvolvedor Full Stack com <strong>5 anos de experiência</strong> no desenvolvimento e sustentação de aplicações web, APIs e sistemas corporativos — com foco em <strong>backend</strong>, <strong>integrações</strong> e <strong>arquitetura de software</strong>.',
+        'about.p2': 'Atuo em modernização de legados, desenvolvimento de novas funcionalidades e MVPs, integrações entre sistemas, infraestrutura e automação de processos — incluindo soluções com <strong>IA</strong> — usando metodologias ágeis (<strong>Scrum/Kanban</strong>) e práticas de <strong>CI/CD</strong>.',
+        'about.p3': 'Atualmente como <strong>Analista de Sistemas Pleno</strong> na <strong>Servimed</strong>, desenvolvendo e mantendo plataformas B2B de distribuição farmacêutica e hospitalar: APIs de integração, portais empresariais e evolução de sistemas críticos.',
         'stack.title': 'Stack & Ferramentas',
         'stack.subtitle': 'Tecnologias que uso no dia a dia',
         'projects.featured.title': 'Projeto em Destaque',
         'projects.featured.subtitle': 'AimJob — SaaS de carreira com IA',
         'projects.featured.label': '✦ Destaque',
-        'projects.aimjob.quote': 'Plataforma multi-tenant que captura vagas, organiza a candidatura e gera planos de estudo com <strong>IA</strong>.',
-        'projects.aimjob.impact': 'Captura de vagas, inbox e planos de estudo com LLM — em produção',
-        'projects.aimjob.desc': 'O <strong><a href="https://aimjob.cloud/" style="color: var(--accent); text-decoration: none;" target="_blank" rel="noopener">AimJob</a></strong> é um SaaS de carreira: busca vagas no LinkedIn e Gupy, centraliza no inbox, notifica no Telegram e gera planos de estudo + pré-entrevista com voz — com billing Stripe e arquitetura Clean/DDD.',
+        'projects.aimjob.quote': 'Monólito modular multi-tenant: captura de vagas, inbox CRM, match CV×vaga e planos de estudo com <strong>IA</strong>.',
+        'projects.aimjob.impact': 'Captura LinkedIn/Gupy, match, LLM e billing Stripe — em produção',
+        'projects.aimjob.desc': 'O <strong><a href="https://aimjob.cloud/" style="color: var(--accent); text-decoration: none;" target="_blank" rel="noopener">AimJob</a></strong> é um SaaS de carreira: busca vagas no LinkedIn e Gupy, centraliza no inbox CRM, faz match CV×vaga, notifica no Telegram e gera planos de estudo + pré-entrevista com voz — com billing Stripe e arquitetura Clean/DDD.',
         'projects.aimjob.featuresTitle': 'Principais funcionalidades:',
         'projects.aimjob.f1': 'Captura multi-fonte (<strong>LinkedIn</strong> via Playwright + <strong>Gupy</strong>) com fila async',
-        'projects.aimjob.f2': 'Inbox multi-tenant: status, notas e fluxo de candidatura',
-        'projects.aimjob.f3': 'Planos de estudo com <strong>LLM (Groq)</strong> e pré-entrevista por voz (Whisper)',
+        'projects.aimjob.f2': 'Inbox CRM multi-tenant: status, notas e fluxo de candidatura',
+        'projects.aimjob.f3': 'Match CV×vaga e planos de estudo com <strong>LLM (Groq)</strong> + pré-entrevista por voz (Whisper)',
         'projects.aimjob.f4': 'Notificações no <strong>Telegram</strong> por conta',
         'projects.aimjob.f5': 'Billing com <strong>Stripe</strong> (planos Free/Pro/Business e cotas)',
         'projects.live': 'Ver em produção',
@@ -1593,16 +1641,26 @@
         'exp.subtitle': 'Trajetória profissional',
         'exp.current': 'Atual',
         'exp.servimed.role': 'Analista de Sistemas Pleno',
-        'exp.servimed.ctx': 'Plataformas B2B farmacêutico e hospitalar',
+        'exp.servimed.ctx': 'Sistemas corporativos B2B — distribuição farmacêutica e hospitalar',
+        'exp.servimed.b1': 'Desenvolvimento da <strong>API de Integração SH</strong> com <strong>NestJS</strong> e <strong>Oracle</strong> (middleware HUMA, sync de cotações/pedidos e webhooks).',
+        'exp.servimed.b2': 'Evolução do Portal Empresarial: API REST com JWT, TypeSense, checkout e pedidos (<strong>Express</strong>, <strong>PostgreSQL</strong>, <strong>Redis</strong>).',
+        'exp.servimed.b3': 'Integrações hospitalares (Bionexo, Apoio, GTPlan) e Portal de Devolução com <strong>.NET Core</strong>, <strong>Vue.js</strong>, <strong>PHP 8</strong> e Oracle.',
+        'exp.servimed.b4': 'Automação com <strong>AI Doc Agent</strong> (Node.js + OpenAI / RabbitMQ) e modernização de sistemas legados.',
         'exp.moovefy.role': 'Desenvolvedor Full Stack',
-        'exp.moovefy.ctx': 'MVPs, integrações e produtos digitais',
+        'exp.moovefy.ctx': 'Aplicações web novas e legadas — backend, integrações e entrega contínua',
+        'exp.moovefy.b1': 'Desenvolvimento com <strong>.NET</strong> e <strong>Vue.js</strong> (MVC, MVVM, microsserviços + gRPC).',
+        'exp.moovefy.b2': 'Modernização de sistemas legados e integração de APIs REST internas e de terceiros.',
+        'exp.moovefy.b3': 'Funcionalidades em <strong>Node.js</strong>, <strong>Laravel</strong> e <strong>AngularJS</strong>; jobs agendados e deploy em servidores Linux.',
+        'exp.moovefy.b4': 'Trabalho em equipes multidisciplinares com <strong>Scrum</strong>, Clean Architecture e DDD.',
         'exp.intern.role': 'Estagiário em Desenvolvimento Web',
-        'exp.intern.ctx': 'Desenvolvimento web e primeiras entregas em produção',
+        'exp.intern.ctx': 'Criação, manutenção e primeiras entregas em produção',
+        'exp.intern.b1': 'Desenvolvimento e manutenção com <strong>C# (.NET)</strong>, <strong>Vue.js</strong> e DevExpress (MVC + Scrum).',
+        'exp.intern.b2': 'Correções, melhorias e integração de serviços via APIs REST em sistemas em produção.',
         'exp.highlights': 'Destaques recentes',
-        'exp.h1': 'Desenvolvimento de APIs e integrações entre sistemas',
-        'exp.h2': 'Modernização de aplicações legadas',
-        'exp.h3': 'MVPs com Node.js e soluções com IA',
-        'exp.h4': 'Melhorias de arquitetura e qualidade de código',
+        'exp.h1': 'API de Integração SH (NestJS + Oracle) com sync e webhooks',
+        'exp.h2': 'Portal Empresarial: JWT, TypeSense, checkout e pedidos',
+        'exp.h3': 'Integrações hospitalares Bionexo, Apoio e GTPlan',
+        'exp.h4': 'AI Doc Agent e modernização do Portal de Devolução',
         'traj.title': 'Trajetória',
         'traj.subtitle': 'Marcos da carreira',
         'traj.2021': 'Estágio · Moovefy',
@@ -1643,13 +1701,13 @@
         'projects.featured.title': 'Featured Project',
         'projects.featured.subtitle': 'AimJob — AI-powered career SaaS',
         'projects.featured.label': '✦ Featured',
-        'projects.aimjob.quote': 'Multi-tenant platform that captures jobs, organizes applications, and generates study plans with <strong>AI</strong>.',
-        'projects.aimjob.impact': 'Job capture, inbox, and LLM study plans — live in production',
-        'projects.aimjob.desc': '<strong><a href="https://aimjob.cloud/" style="color: var(--accent); text-decoration: none;" target="_blank" rel="noopener">AimJob</a></strong> is a career SaaS: discovers roles on LinkedIn and Gupy, centralizes them in an inbox, notifies via Telegram, and generates study plans + voice pre-interviews — with Stripe billing and Clean/DDD architecture.',
+        'projects.aimjob.quote': 'Modular multi-tenant monolith: job capture, CRM inbox, CV×job match, and study plans with <strong>AI</strong>.',
+        'projects.aimjob.impact': 'LinkedIn/Gupy capture, match, LLM, and Stripe billing — live in production',
+        'projects.aimjob.desc': '<strong><a href="https://aimjob.cloud/" style="color: var(--accent); text-decoration: none;" target="_blank" rel="noopener">AimJob</a></strong> is a career SaaS: discovers roles on LinkedIn and Gupy, centralizes them in a CRM inbox, matches CV×job, notifies via Telegram, and generates study plans + voice pre-interviews — with Stripe billing and Clean/DDD architecture.',
         'projects.aimjob.featuresTitle': 'Key features:',
         'projects.aimjob.f1': 'Multi-source capture (<strong>LinkedIn</strong> via Playwright + <strong>Gupy</strong>) with async workers',
-        'projects.aimjob.f2': 'Multi-tenant inbox: status, notes, and application workflow',
-        'projects.aimjob.f3': 'Study plans with <strong>LLM (Groq)</strong> and voice pre-interview (Whisper)',
+        'projects.aimjob.f2': 'Multi-tenant CRM inbox: status, notes, and application workflow',
+        'projects.aimjob.f3': 'CV×job match and study plans with <strong>LLM (Groq)</strong> + voice pre-interview (Whisper)',
         'projects.aimjob.f4': 'Per-account <strong>Telegram</strong> notifications',
         'projects.aimjob.f5': '<strong>Stripe</strong> billing (Free/Pro/Business plans and quotas)',
         'projects.live': 'View live product',
@@ -1671,16 +1729,26 @@
         'exp.subtitle': 'Professional journey',
         'exp.current': 'Present',
         'exp.servimed.role': 'Mid Level Systems Analyst',
-        'exp.servimed.ctx': 'B2B pharmaceutical and healthcare platforms',
+        'exp.servimed.ctx': 'B2B enterprise systems — pharmaceutical and healthcare distribution',
+        'exp.servimed.b1': 'Built the <strong>SH Integration API</strong> with <strong>NestJS</strong> and <strong>Oracle</strong> (HUMA middleware, quote/order sync, and webhooks).',
+        'exp.servimed.b2': 'Evolved the Enterprise Portal: REST API with JWT, TypeSense, checkout, and orders (<strong>Express</strong>, <strong>PostgreSQL</strong>, <strong>Redis</strong>).',
+        'exp.servimed.b3': 'Hospital integrations (Bionexo, Apoio, GTPlan) and Returns Portal with <strong>.NET Core</strong>, <strong>Vue.js</strong>, <strong>PHP 8</strong>, and Oracle.',
+        'exp.servimed.b4': 'Automation with <strong>AI Doc Agent</strong> (Node.js + OpenAI / RabbitMQ) and legacy system modernization.',
         'exp.moovefy.role': 'Full Stack Developer',
-        'exp.moovefy.ctx': 'MVPs, integrations, and digital products',
+        'exp.moovefy.ctx': 'New and legacy web apps — backend, integrations, and continuous delivery',
+        'exp.moovefy.b1': 'Built apps with <strong>.NET</strong> and <strong>Vue.js</strong> (MVC, MVVM, microservices + gRPC).',
+        'exp.moovefy.b2': 'Legacy system modernization and integration of internal and third-party REST APIs.',
+        'exp.moovefy.b3': 'Features in <strong>Node.js</strong>, <strong>Laravel</strong>, and <strong>AngularJS</strong>; scheduled jobs and Linux server deployments.',
+        'exp.moovefy.b4': 'Worked with cross-functional teams using <strong>Scrum</strong>, Clean Architecture, and DDD.',
         'exp.intern.role': 'Web Development Intern',
-        'exp.intern.ctx': 'Web development and first production deliveries',
+        'exp.intern.ctx': 'Building, maintaining, and first production deliveries',
+        'exp.intern.b1': 'Development and maintenance with <strong>C# (.NET)</strong>, <strong>Vue.js</strong>, and DevExpress (MVC + Scrum).',
+        'exp.intern.b2': 'Bug fixes, improvements, and REST API integrations on production systems.',
         'exp.highlights': 'Recent highlights',
-        'exp.h1': 'API development and system integrations',
-        'exp.h2': 'Legacy application modernization',
-        'exp.h3': 'Node.js MVPs and AI-powered solutions',
-        'exp.h4': 'Architecture improvements and code quality',
+        'exp.h1': 'SH Integration API (NestJS + Oracle) with sync and webhooks',
+        'exp.h2': 'Enterprise Portal: JWT, TypeSense, checkout, and orders',
+        'exp.h3': 'Hospital integrations with Bionexo, Apoio, and GTPlan',
+        'exp.h4': 'AI Doc Agent and Returns Portal modernization',
         'traj.title': 'Trajectory',
         'traj.subtitle': 'Career milestones',
         'traj.2021': 'Intern · Moovefy',
