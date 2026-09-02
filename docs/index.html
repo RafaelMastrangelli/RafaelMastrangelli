@@ -1214,7 +1214,7 @@
         <div class="badges">
           <a class="badge-linkedin" href="https://linkedin.com/in/rafael-mastrangelli-534472259" target="_blank" rel="noopener">LinkedIn</a>
           <a class="badge-github" href="https://github.com/RafaelMastrangelli" target="_blank" rel="noopener">GitHub</a>
-          <a class="badge-cv" href="CV_Rafael%20Mastrangelli_DevFullStack.pdf" target="_blank" rel="noopener" data-i18n="hero.cv">Currículo</a>
+          <a class="badge-cv" href="CV%20%E2%80%94%20Rafael%20Mastrangelli.pdf" target="_blank" rel="noopener" data-i18n="hero.cv">Currículo</a>
           <a class="badge-email" href="mailto:rafadmastrangelli@gmail.com">Email</a>
         </div>
         <div class="terminal-line" aria-hidden="true">
@@ -1529,7 +1529,7 @@
       <div class="badges">
         <a class="badge-linkedin" href="https://linkedin.com/in/rafael-mastrangelli-534472259" target="_blank" rel="noopener" data-i18n="contact.linkedin">Conectar no LinkedIn</a>
         <a class="badge-github" href="https://github.com/RafaelMastrangelli" target="_blank" rel="noopener">GitHub</a>
-        <a class="badge-cv" href="CV_Rafael%20Mastrangelli_DevFullStack.pdf" target="_blank" rel="noopener" data-i18n="contact.cv">Currículo</a>
+        <a class="badge-cv" href="CV%20%E2%80%94%20Rafael%20Mastrangelli.pdf" target="_blank" rel="noopener" data-i18n="contact.cv">Currículo</a>
         <a class="badge-email" href="mailto:rafadmastrangelli@gmail.com" data-i18n="contact.email">Enviar Email</a>
       </div>
     </section>
@@ -1700,6 +1700,11 @@
 
     let currentLang = localStorage.getItem('lang') || 'pt';
 
+    const cvFiles = {
+      pt: 'CV — Rafael Mastrangelli.pdf',
+      en: 'Resume — Rafael Mastrangelli.pdf'
+    };
+
     function applyLang(lang) {
       currentLang = lang;
       localStorage.setItem('lang', lang);
@@ -1713,6 +1718,10 @@
       document.querySelectorAll('[data-i18n-html]').forEach((el) => {
         const key = el.dataset.i18nHtml;
         if (i18n[lang][key]) el.innerHTML = i18n[lang][key];
+      });
+
+      document.querySelectorAll('.badge-cv').forEach((el) => {
+        el.href = encodeURIComponent(cvFiles[lang]);
       });
 
       document.querySelectorAll('.lang-btn').forEach((btn) => {
