@@ -136,7 +136,7 @@ const rafael = {
       </p>
     </td>
   </tr>
-  <tr>
+  <!-- <tr>
     <td width="50%" valign="top">
       <h3>📈 <a href="https://github.com/RafaelMastrangelli/FinanceHub">FinanceHub</a></h3>
       <p>Dashboard de investimentos com visualização de dados financeiros e gestão de portfólio.</p>
@@ -145,7 +145,7 @@ const rafael = {
       </p>
     </td>
     <td width="50%" valign="top"></td>
-  </tr>
+  </tr> -->
 </table>
 
 ---
